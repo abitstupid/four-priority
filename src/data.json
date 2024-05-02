@@ -1,0 +1,48 @@
+{
+	"PRIORITY_CARDS": [
+		{
+			"id": 0,
+			"name": "p1",
+			"type": 1,
+			"heading": "Priority 1",
+			"isActive": false,
+			"content": "<p1>THis is a paragraph</p1>",
+			"styles": {
+				"height": "35vh"
+			}
+		},
+		{
+			"id": 1,
+			"name": "p2",
+			"type": 2,
+			"heading": "Priority 2",
+			"isActive": false,
+			"content": "<ol><li>THis is a paragraph</li></ol>",
+			"styles": {
+				"height": "25vh"
+			}
+		},
+		{
+			"id": 2,
+			"name": "p3",
+			"type": 3,
+			"heading": "Priority 3",
+			"isActive": false,
+			"content": "<ul><li>THis is a paragraph</li></ul>",
+			"styles": {
+				"height": "20vh"
+			}
+		},
+		{
+			"id": 3,
+			"name": "other",
+			"type": 4,
+			"heading": "Others",
+			"isActive": false,
+			"content": "<p>Hello</p>",
+			"styles": {
+				"height": "20vh"
+			}
+		}
+	]
+}

@@ -1,0 +1,25 @@
+@import "./../../global.scss";
+
+.editorWrapper {
+	position: absolute;
+	top: $top-nav-height;
+	left: 0rem;
+	z-index: 999;
+}
+
+.tiptap {
+	height: calc(100vh - $top-nav-height - 0.5rem);
+	width: 100vw;
+	border: 2px solid $primary-color;
+	border-radius: 8px;
+
+	background-color: $secondary-color;
+
+	padding: 0.5rem;
+}
+
+.toggleBtnWrapper {
+	position: absolute;
+	bottom: 1rem;
+	left: 0;
+}
