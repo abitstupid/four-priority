@@ -16,9 +16,14 @@ export default function Home({ cardsData, appTitle }) {
 				</h1>
 				<div className={`${styles.appLogoWrapper} center`}>
 					<Link to={"/"}>
-						<span style={{ position: "relative" }}>
+						<span
+							style={{
+								position: "relative",
+								display: "inline-block",
+							}}
+						>
 							<svg
-								className={`${styles.appLogo}`}
+								className={`${styles?.appLogo}`}
 								width="40"
 								height="40"
 								viewBox="0 0 100 100"
