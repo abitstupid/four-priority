@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import "./App.css";
-import "./global.scss";
-import PriorityCardLink from "./components/PriorityCard/PriorityCardLink";
 import TipTap from "./components/TipTap/TipTap";
+import { Routes, Route } from "react-router-dom";
+
 import data from "./data.json";
+import "./global.scss";
+import "./App.css";
+import Home from "./pages/home/home";
 
 const PRIORTY_CARDS = data.PRIORITY_CARDS;
+const APP_TITLE = data.appTitle;
 
 function App() {
 	const [cardsData, setCardsData] = useState(PRIORTY_CARDS);
@@ -20,17 +22,26 @@ function App() {
 		});
 		setCardsData(updatedCardsData);
 	}
-
 	return (
 		<div className="App">
 			<Routes>
 				<Route
 					path="/"
-					element={<PriorityCardLink cardsData={cardsData} />}
+					element={
+						<Home
+							cardsData={cardsData}
+							appTitle={APP_TITLE}
+						/>
+					}
 				/>
 				<Route
 					index
-					element={<PriorityCardLink cardsData={cardsData} />}
+					element={
+						<Home
+							cardsData={cardsData}
+							appTitle={APP_TITLE}
+						/>
+					}
 				/>
 				<Route
 					path="/editor"

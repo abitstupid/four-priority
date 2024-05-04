@@ -1,0 +1,66 @@
+/* UI CLASSES */
+%toggleBtnBasic {
+	appearance: none;
+	border: 2px solid $primary-color;
+	border-radius: 4px;
+
+	width: 40px;
+	height: 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn {
+	@extend %toggleBtnBasic;
+}
+
+.btnPrimary {
+	background-color: $secondary-color;
+}
+
+.btnSecondary {
+	background-color: $primary-color;
+}
+
+.btnSmall {
+	width: 28px;
+	height: 28px;
+
+	padding: 0;
+}
+
+.iconSize {
+	height: 28px;
+	width: 28px;
+}
+
+.iconSizeSmall {
+	height: 16px;
+	width: 16px;
+}
+.toggleBtnWrapper {
+	width: calc(100vw - 16px);
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+a:link,
+a:hover,
+a:active,
+a:focus,
+a:visited {
+	text-decoration: none;
+	color: $primary-color;
+}
+
+// tag element PARENT SHOULD HAVE POSITION RELATIVE
+
+.tag {
+	display: inline-block;
+	font-size: 0.875rem;
+	position: absolute;
+	top: 0;
+}

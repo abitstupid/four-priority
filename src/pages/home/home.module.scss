@@ -1,0 +1,21 @@
+@import "./../../global.scss";
+
+.homeHeaderWrapper {
+	height: $top-nav-height;
+	margin-bottom: 0.5rem;
+}
+
+.homeHeader {
+	margin-bottom: 0.5rem;
+	font-weight: 900;
+}
+
+.appLogoWrapper {
+	justify-content: space-between;
+}
+
+.appLogoBeta {
+	position: absolute;
+	top: 1%;
+	left: 48px;
+}

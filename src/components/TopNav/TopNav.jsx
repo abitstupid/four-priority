@@ -1,19 +1,21 @@
+import PropTypes from "prop-types";
+import { IoArrowBackOutline } from "react-icons/io5";
 import styles from "./TopNav.module.scss";
-
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { RiInfoI } from "react-icons/ri";
-
-export default function TopNav() {
+import InfoButton from "../InfoButton/InfoButton";
+import { Link } from "react-router-dom";
+export default function TopNav({ cardId }) {
 	return (
 		<div className={`${styles.topNavWrpper}`}>
-			<button className={`${styles.BackBtn}`}>
-				<IoMdArrowRoundBack />
-			</button>
-			<div className={`${styles.infoWrapper}`}>
-				<RiInfoI />
-			</div>
+			<Link to={"/"}>
+				<button className={`${styles.BackBtn} btn btnPrimary`}>
+					<IoArrowBackOutline className="iconSize" />
+				</button>
+			</Link>
+			<InfoButton cardId={cardId} />
 		</div>
 	);
 }
 
-TopNav.propTypes = {};
+TopNav.propTypes = {
+	cardId: PropTypes.number,
+};

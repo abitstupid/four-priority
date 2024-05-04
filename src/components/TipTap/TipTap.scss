@@ -1,25 +1,31 @@
 @import "./../../global.scss";
 
-.editorWrapper {
-	position: absolute;
-	top: $top-nav-height;
-	left: 0rem;
-	z-index: 999;
-}
-
 .tiptap {
-	height: calc(100vh - $top-nav-height - 0.5rem);
-	width: 100vw;
+	font-size: 1.25rem;
+
+	// vh
+	height: calc(100vh - $top-nav-height - 1.5rem);
+	max-height: calc(100vh - $top-nav-height - 1.5rem);
+	// svh
+	height: calc(100svh - $top-nav-height - 1.5rem);
+	max-height: calc(100svh - $top-nav-height - 1.5rem);
+	// dvh
+	height: calc(100dvh - $top-nav-height - 1.5rem);
+	max-height: calc(100dvh - $top-nav-height - 1.5rem);
+
+	width: 100%;
+
 	border: 2px solid $primary-color;
 	border-radius: 8px;
 
-	background-color: $secondary-color;
-
 	padding: 0.5rem;
+	overflow-y: auto;
+
+	background-color: $secondary-color;
 }
 
 .toggleBtnWrapper {
 	position: absolute;
 	bottom: 1rem;
-	left: 0;
+	left: 0.5rem;
 }

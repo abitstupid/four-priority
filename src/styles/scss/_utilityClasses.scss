@@ -1,0 +1,65 @@
+/* MARGINS */
+.marginTopSmall {
+	margin-top: 0.5rem;
+}
+
+.marginTopMedium {
+	margin-top: 1rem;
+}
+
+.marginTopLarge {
+	margin-top: 2rem;
+}
+.marginBottomSmall {
+	margin-bottom: 0.5rem;
+}
+
+.marginBottomMedium {
+	margin-bottom: 1rem;
+}
+
+.marginBottomLarge {
+	margin-bottom: 2rem;
+}
+
+// center an element horizontal and vertically
+.center,
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.centerV {
+	display: flex;
+	align-items: center;
+}
+
+.centerH {
+	display: flex;
+	justify-content: center;
+}
+
+.column {
+	flex-direction: column;
+}
+
+// visually hidden
+
+.visually-hidden:not(:focus):not(:active) {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+
+// disable scrolling
+.remove-scrolling {
+	// height: 100%;
+	overflow: hidden;
+}

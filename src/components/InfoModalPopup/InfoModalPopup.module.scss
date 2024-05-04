@@ -1,0 +1,37 @@
+@import "../../global.scss";
+
+.infoModalPopupWrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999;
+
+	background-color: $primary-transparent-color;
+
+	height: 100vh;
+	height: 100svh;
+	height: 100dvh;
+	width: 100%;
+}
+
+.infoModal {
+	position: relative;
+
+	width: 85%;
+	height: 55%;
+	padding: 2rem;
+	overflow: auto;
+
+	background-color: $secondary-color;
+
+	border-radius: 0.5rem;
+	border: 2px solid $primary-color;
+}
+
+.infoModalCloseBtn {
+	position: absolute;
+
+	top: 0.5rem;
+	right: 0.5rem;
+}

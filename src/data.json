@@ -1,4 +1,5 @@
 {
+	"appTitle": "four-priority",
 	"PRIORITY_CARDS": [
 		{
 			"id": 0,
@@ -6,9 +7,12 @@
 			"type": 1,
 			"heading": "Priority 1",
 			"isActive": false,
-			"content": "<p1>THis is a paragraph</p1>",
+			"content": "<p1>This is a paragraph</p1>",
 			"styles": {
-				"height": "35vh"
+				"height": "30vh",
+				"backgroundColor": "#FFA2A2",
+				"btnClass": "btnSecondary",
+				"iconFill": "#ffffff"
 			}
 		},
 		{
@@ -17,9 +21,12 @@
 			"type": 2,
 			"heading": "Priority 2",
 			"isActive": false,
-			"content": "<ol><li>THis is a paragraph</li></ol>",
+			"content": "<ol><li>This is a list item</li></ol>",
 			"styles": {
-				"height": "25vh"
+				"height": "25vh",
+				"backgroundColor": "#FCFEAB",
+				"btnClass": "btnPrimary",
+				"iconFill": "#1e1e1e"
 			}
 		},
 		{
@@ -28,9 +35,12 @@
 			"type": 3,
 			"heading": "Priority 3",
 			"isActive": false,
-			"content": "<ul><li>THis is a paragraph</li></ul>",
+			"content": "<ul><li>THis is an unordered list item</li></ul>",
 			"styles": {
-				"height": "20vh"
+				"height": "25vh",
+				"backgroundColor": "#C3FFB4",
+				"btnClass": "btnPrimary",
+				"iconFill": "#1e1e1e"
 			}
 		},
 		{
@@ -39,10 +49,48 @@
 			"type": 4,
 			"heading": "Others",
 			"isActive": false,
-			"content": "<p>Hello</p>",
+			"content": "<p>This is also a paragraph</p>",
 			"styles": {
-				"height": "20vh"
+				"height": "20vh",
+				"backgroundColor": "#DCD8D8",
+				"btnClass": "btnPrimary",
+				"iconFill": "#1e1e1e"
 			}
 		}
-	]
+	],
+	"infoData": {
+		"welcome": {
+			"content": "Welcome to Four Priority."
+		},
+		"cardsInfo": [
+			{
+				"id": 0,
+				"content": [
+					"Add Maximum 1-2 tasks in Priority 1",
+					"Complete 80% of Priority 1 to continue to Priority 2"
+				]
+			},
+			{
+				"id": 1,
+				"content": [
+					"Add Maximum 1-2 tasks in Priority 2",
+					"Complete Priority 2 to continue to Priority 3"
+				]
+			},
+			{
+				"id": 2,
+				"content": ["Add Maximum 1-2 tasks in Priority 3"]
+			},
+			{
+				"id": 3,
+				"content": [
+					"These includes some small tasks that you can achieve while you're on a little break",
+					"or maybe tasks that don't need much will power to do but has to be done neverthless"
+				]
+			}
+		]
+	},
+	"assets": {
+		"appLogo": "./assets/images/four-priority-logo.svg"
+	}
 }

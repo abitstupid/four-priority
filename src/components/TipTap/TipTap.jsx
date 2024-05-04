@@ -14,6 +14,7 @@ import { GoListOrdered } from "react-icons/go";
 import "./TipTap.scss";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
+import TopNav from "../TopNav/TopNav";
 
 export default function TipTap({ handleCardsDataUpdate }) {
 	const location = useLocation();
@@ -53,6 +54,7 @@ export default function TipTap({ handleCardsDataUpdate }) {
 
 	return (
 		<>
+			<TopNav cardId={Number(fetchedCardId)} />
 			<div className="editorWrapper">
 				<EditorContent
 					className="editor"
@@ -70,9 +72,9 @@ export default function TipTap({ handleCardsDataUpdate }) {
 						}
 						className={`${
 							editor.isActive("bold") ? "is-active" : ""
-						} toggleBtn`}
+						} btn btnPrimary`}
 					>
-						<FaBold />
+						<FaBold className="iconSizeSmall" />
 					</button>
 
 					{/* ITALIC */}
@@ -85,9 +87,9 @@ export default function TipTap({ handleCardsDataUpdate }) {
 						}
 						className={`${
 							editor.isActive("italic") ? "is-active" : ""
-						} toggleBtn`}
+						} btn btnPrimary`}
 					>
-						<FaItalic />
+						<FaItalic className="iconSizeSmall" />
 					</button>
 
 					{/* Bulleted List */}
@@ -97,9 +99,9 @@ export default function TipTap({ handleCardsDataUpdate }) {
 						}
 						className={`${
 							editor.isActive("bulletList") ? "is-active" : ""
-						} toggleBtn`}
+						} btn btnPrimary`}
 					>
-						<PiListBulletsFill />
+						<PiListBulletsFill className="iconSizeSmall" />
 					</button>
 
 					{/* Todo List */}
@@ -109,9 +111,9 @@ export default function TipTap({ handleCardsDataUpdate }) {
 						}
 						className={`${
 							editor.isActive("taskList") ? "is-active" : ""
-						} toggleBtn`}
+						} btn btnPrimary`}
 					>
-						<IoMdCheckboxOutline />
+						<IoMdCheckboxOutline className="iconSizeSmall" />
 					</button>
 
 					{/* Ordered List */}
@@ -121,27 +123,27 @@ export default function TipTap({ handleCardsDataUpdate }) {
 						}
 						className={`${
 							editor.isActive("orderedList") ? "is-active" : ""
-						} toggleBtn`}
+						} btn btnPrimary`}
 					>
-						<GoListOrdered />
+						<GoListOrdered className="iconSizeSmall" />
 					</button>
 
 					{/* UNDO */}
 					<button
 						onClick={() => editor.chain().focus().undo().run()}
 						disabled={!editor.can().undo()}
-						className={`toggleBtn`}
+						className={`btn btnPrimary`}
 					>
-						<FaUndoAlt />
+						<FaUndoAlt className="iconSizeSmall" />
 					</button>
 
 					{/* REDO */}
 					<button
 						onClick={() => editor.chain().focus().redo().run()}
 						disabled={!editor.can().redo()}
-						className={`toggleBtn`}
+						className={`btn btnPrimary`}
 					>
-						<FaRedo />
+						<FaRedo className="iconSizeSmall" />
 					</button>
 				</div>
 			</div>
