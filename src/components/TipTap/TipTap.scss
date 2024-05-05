@@ -4,14 +4,17 @@
 	font-size: 1.25rem;
 
 	// vh
-	height: calc(100vh - $top-nav-height - 1.5rem);
-	max-height: calc(100vh - $top-nav-height - 1.5rem);
+	height: calc(100vh - $bottom-nav-height - 4rem);
+	max-height: calc(100vh - $bottom-nav-height - 4rem);
 	// svh
-	height: calc(100svh - $top-nav-height - 1.5rem);
-	max-height: calc(100svh - $top-nav-height - 1.5rem);
+	height: calc(100svh - $bottom-nav-height - 4rem);
+	max-height: calc(100svh - $bottom-nav-height - 4rem);
 	// dvh
-	height: calc(100dvh - $top-nav-height - 1.5rem);
-	max-height: calc(100dvh - $top-nav-height - 1.5rem);
+	height: calc(100dvh - $bottom-nav-height - 4rem);
+	max-height: calc(100dvh - $bottom-nav-height - 4rem);
+
+	height: calc(100dvh - $bottom-nav-height - 4rem);
+	max-height: calc(100dvh - $bottom-nav-height - 4rem);
 
 	width: 100%;
 
@@ -26,6 +29,6 @@
 
 .toggleBtnWrapper {
 	position: absolute;
-	bottom: 1rem;
+	bottom: 4rem;
 	left: 0.5rem;
 }

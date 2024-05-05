@@ -1,0 +1,19 @@
+@import "./../../global.scss";
+
+.pomodoroWrapper {
+	height: 35vh;
+	height: 35svh;
+	height: 35dvh;
+	width: 100%;
+
+	border: 2px solid $primary-color;
+	border-radius: 0.5rem;
+
+	.clock {
+		border-radius: 0.5rem;
+		border: 2px solid $primary-color;
+
+		height: 65%;
+		width: 90%;
+	}
+}

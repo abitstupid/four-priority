@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./home.module.scss";
 import InfoButton from "../../components/InfoButton/InfoButton";
 import { Link } from "react-router-dom";
+import BottomNav from "../../components/BottomNav/BottomNav";
 
 export default function Home({ cardsData, appTitle }) {
 	const HOME_CARD_ID = 99;
@@ -61,6 +62,9 @@ export default function Home({ cardsData, appTitle }) {
 					<InfoButton cardId={HOME_CARD_ID} />
 				</div>
 			</div>
+
+			{/* Bottom Nav */}
+			<BottomNav />
 			<PriorityCardLink cardsData={cardsData} />
 		</>
 	);

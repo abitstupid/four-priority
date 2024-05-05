@@ -1,0 +1,27 @@
+@import "./../../global.scss";
+
+.bottomNavWrpper {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+
+	display: flex;
+	flex: row nowrap;
+	align-items: center;
+	justify-content: space-around;
+
+	width: 100%;
+	height: $bottom-nav-height;
+	padding: 0.5rem;
+
+	background-color: $secondary-color;
+	border-top: 2px solid $primary-color;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	box-shadow: 0 -4px 5px $primary-transparent-color;
+}
+
+.activeNavBtn {
+	background-color: black;
+}

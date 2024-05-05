@@ -15,6 +15,7 @@ import "./TipTap.scss";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import TopNav from "../TopNav/TopNav";
+import BottomNav from "../BottomNav/BottomNav";
 
 export default function TipTap({ handleCardsDataUpdate }) {
 	const location = useLocation();
@@ -55,6 +56,7 @@ export default function TipTap({ handleCardsDataUpdate }) {
 	return (
 		<>
 			<TopNav cardId={Number(fetchedCardId)} />
+			<BottomNav />
 			<div className="editorWrapper">
 				<EditorContent
 					className="editor"

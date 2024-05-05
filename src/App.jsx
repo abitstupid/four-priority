@@ -6,6 +6,7 @@ import data from "./data.json";
 import "./global.scss";
 import "./App.css";
 import Home from "./pages/home/home";
+import Features from "./pages/features/features";
 
 const PRIORTY_CARDS = data.PRIORITY_CARDS;
 const APP_TITLE = data.appTitle;
@@ -59,6 +60,10 @@ function App() {
 							handleCardsDataUpdate={handleCardsDataUpdate}
 						/>
 					}
+				/>
+				<Route
+					path="/features"
+					element={<Features />}
 				/>
 			</Routes>
 		</div>
