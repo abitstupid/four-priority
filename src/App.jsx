@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TipTap from "./components/TipTap/TipTap";
 import { Routes, Route } from "react-router-dom";
 
@@ -11,7 +11,14 @@ const PRIORTY_CARDS = data.PRIORITY_CARDS;
 const APP_TITLE = data.appTitle;
 
 function App() {
-	const [cardsData, setCardsData] = useState(PRIORTY_CARDS);
+	const [cardsData, setCardsData] = useState(() => {
+		const savedData = localStorage.getItem("preSavedData");
+		return savedData ? JSON.parse(savedData) : PRIORTY_CARDS;
+	});
+
+	useEffect(() => {
+		localStorage.setItem("preSavedData", JSON.stringify(cardsData));
+	}, [cardsData]);
 
 	function handleCardsDataUpdate(content, id) {
 		const updatedCardsData = cardsData.map((card) => {
@@ -22,6 +29,7 @@ function App() {
 		});
 		setCardsData(updatedCardsData);
 	}
+
 	return (
 		<div className="App">
 			<Routes>
