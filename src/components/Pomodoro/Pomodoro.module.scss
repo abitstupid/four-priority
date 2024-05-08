@@ -1,19 +1,15 @@
 @import "./../../global.scss";
+@import "./../../styles/scss/slider.scss";
 
 .pomodoroWrapper {
-	height: 35vh;
-	height: 35svh;
-	height: 35dvh;
+	height: 100%;
 	width: 100%;
 
-	border: 2px solid $primary-color;
-	border-radius: 0.5rem;
+	padding: 0.5rem;
 
-	.clock {
-		border-radius: 0.5rem;
-		border: 2px solid $primary-color;
+	.timerBtnWrapper {
+		width: 100%;
 
-		height: 65%;
-		width: 90%;
+		justify-content: space-around;
 	}
 }

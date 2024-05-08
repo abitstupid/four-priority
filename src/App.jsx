@@ -36,12 +36,7 @@ function App() {
 			<Routes>
 				<Route
 					path="/"
-					element={
-						<Home
-							cardsData={cardsData}
-							appTitle={APP_TITLE}
-						/>
-					}
+					element={<Home cardsData={cardsData} />}
 				/>
 				<Route
 					index

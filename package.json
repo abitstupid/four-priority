@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babel/runtime": "^7.24.5",
     "@tiptap/extension-bullet-list": "^2.3.0",
     "@tiptap/extension-history": "^2.3.0",
     "@tiptap/extension-italic": "^2.3.0",
@@ -22,10 +23,12 @@
     "@tiptap/starter-kit": "^2.3.0",
     "@uidotdev/usehooks": "^2.4.1",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.0",
+    "react-slider": "^2.0.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

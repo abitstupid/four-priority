@@ -1,7 +1,8 @@
 $primary-color: #1e1e1e;
 $secondary-color: #ffffff;
 $tertiary-color: #535353;
-$primary-transparent-color: #1e1e1e67;
+$primary-transparent-color: #1e1e1e63;
 
 $top-nav-height: 2.5rem;
-$bottom-nav-height: 3rem;
+$bottom-nav-height: 4rem;
+$editor-bottom-exclusion: calc($bottom-nav-height + 3rem);

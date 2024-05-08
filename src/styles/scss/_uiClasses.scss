@@ -16,6 +16,13 @@
 	@extend %toggleBtnBasic;
 }
 
+.btnWithText {
+	width: fit-content;
+	height: fit-content;
+	padding: 8px 16px;
+	font-size: 1rem;
+}
+
 .btnPrimary {
 	background-color: $secondary-color;
 }
@@ -31,20 +38,27 @@
 	padding: 0;
 }
 
+.iconSizeLarge {
+	height: 40px;
+	width: 40px;
+}
+
 .iconSize {
 	height: 28px;
 	width: 28px;
 }
 
 .iconSizeSmall {
-	height: 16px;
-	width: 16px;
+	height: 20px;
+	width: 20px;
 }
+
 .toggleBtnWrapper {
 	width: calc(100vw - 16px);
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
+	gap: 2rem;
 }
 
 a:link,
@@ -56,6 +70,14 @@ a:visited {
 	color: $primary-color;
 }
 
+.linkUnderlined {
+	text-decoration: underline !important;
+}
+
+.linkUnderlined:hover {
+	font-weight: bold;
+}
+
 // tag element PARENT SHOULD HAVE POSITION RELATIVE
 
 .tag {
@@ -63,4 +85,10 @@ a:visited {
 	font-size: 0.875rem;
 	position: absolute;
 	top: 1%;
+}
+
+@media screen and (max-width: 550px) {
+	.toggleBtnWrapper {
+		gap: 0.5rem;
+	}
 }

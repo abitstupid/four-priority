@@ -10,4 +10,22 @@
 	height: $top-nav-height;
 	padding: 0.5rem;
 	margin-bottom: 0.5rem;
+
+	.appLogoWrapper {
+		justify-content: space-between;
+	}
+
+	.appLogoBeta {
+		left: 48px;
+	}
+
+	.sidebarBtn {
+		border-radius: 100%;
+		margin-left: 0.5rem;
+		background-color: $primary-color;
+		background: url("./assets/images/user-dummy.jpg");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 }

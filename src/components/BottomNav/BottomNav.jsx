@@ -1,7 +1,7 @@
 // import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import { GoHomeFill } from "react-icons/go";
-// import { HiMiniQueueList } from "react-icons/hi2";
+import { HiMiniQueueList } from "react-icons/hi2";
 import styles from "./BottomNav.module.scss";
 import { useState } from "react";
 
@@ -29,7 +29,7 @@ export default function BottomNav() {
 					/>
 				</div>
 			</Link>
-			{/* <Link
+			<Link
 				to={"/features"}
 				onClick={() => handleNavBtnClick("/features")}
 			>
@@ -43,7 +43,7 @@ export default function BottomNav() {
 						className="iconSizeSmall"
 					/>
 				</div>
-			</Link> */}
+			</Link>
 		</div>
 	);
 }

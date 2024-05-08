@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "./InfoModalPopup.module.scss";
 import { IoClose } from "react-icons/io5";
+
 import data from "./../../data.json";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 

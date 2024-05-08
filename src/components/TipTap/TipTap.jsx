@@ -63,6 +63,7 @@ export default function TipTap({ handleCardsDataUpdate }) {
 					editor={editor}
 					content={content}
 				/>
+
 				<div className="toggleBtnWrapper">
 					{/* BOLD */}
 					<button

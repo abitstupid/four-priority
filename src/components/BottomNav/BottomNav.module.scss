@@ -3,17 +3,22 @@
 .bottomNavWrpper {
 	position: fixed;
 	bottom: 0;
-	left: 0;
-	z-index: 999;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 998;
 
 	display: flex;
 	flex: row nowrap;
-	align-items: center;
-	justify-content: space-around;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 3rem;
 
 	width: 100%;
 	height: $bottom-nav-height;
+	// max-width: 800px;
 	padding: 0.5rem;
+	margin-right: auto;
+	margin-left: auto;
 
 	background-color: $secondary-color;
 	border-top: 2px solid $primary-color;
@@ -24,4 +29,10 @@
 
 .activeNavBtn {
 	background-color: black;
+}
+
+@media screen and (max-width: 700px) {
+	.bottomNavWrpper {
+		justify-content: space-around;
+	}
 }
