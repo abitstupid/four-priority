@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const initBeforeUnload = (showExitPrompt) => {
 	window.onbeforeunload = (event) => {
-		const e = event || window.event;
+		const e = event;
 
 		if (showExitPrompt) {
 			e.preventDefault();

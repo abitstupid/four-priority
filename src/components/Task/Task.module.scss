@@ -1,0 +1,56 @@
+@import "./../../global.scss";
+
+.taskWrapper {
+	width: 100%;
+
+	.tasks {
+		width: inherit;
+
+		font-family: inherit;
+		align-items: flex-start;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 0.25rem;
+
+		.task {
+			width: inherit;
+			justify-content: flex-start;
+			align-items: center;
+
+			.checkboxWrapper {
+				flex-shrink: 0;
+			}
+
+			.taskListItem {
+				margin-left: 0.5rem;
+				font-size: 1.15rem;
+				word-break: break-word;
+				overflow-wrap: break-word;
+			}
+
+			.taskEditingWrapper {
+				width: inherit;
+
+				.editTaskInput {
+					font-family: inherit;
+					font-size: 1rem;
+					appearance: none;
+					border: 2px solid $primary-color;
+					border-radius: 0.5rem;
+					padding: 0.5rem;
+
+					width: inherit;
+					height: 48px;
+				}
+			}
+		}
+		.changesBtnWrapper {
+			align-self: flex-end;
+			gap: 0.15rem;
+		}
+	}
+}
+
+li {
+	list-style-type: none;
+}

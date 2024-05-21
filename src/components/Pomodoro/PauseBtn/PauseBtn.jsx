@@ -1,13 +1,15 @@
 import { FaPause } from "react-icons/fa";
-import styles from "./PauseBtn.module.scss";
+import Button from "../../Buttons/Button";
 
 export default function PauseBtn(props) {
 	return (
-		<button
-			{...props}
-			className={`${styles.timerPauseBtn} timerBtn  btn btnPrimary`}
-		>
-			<FaPause className="iconSize" />
-		</button>
+		<div {...props}>
+			<Button
+				variant="primary"
+				type="squareLarge"
+			>
+				<FaPause className="iconSize" />
+			</Button>
+		</div>
 	);
 }

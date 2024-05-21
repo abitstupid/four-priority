@@ -1,0 +1,131 @@
+@import "./../../../global.scss";
+@keyframes optionTransition {
+	0% {
+		transform: scaleY(0);
+		transform-origin: top;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	100% {
+		transform: scaleY(1);
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes rotate180 {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(180deg);
+	}
+}
+
+.customSelectContainer {
+	position: relative;
+	width: 100%;
+	min-height: 1.5rem;
+
+	border: 2px solid $primary-color;
+	border-radius: 0.5rem;
+
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem;
+
+	outline: none;
+}
+
+.customSelectContainer:focus {
+	box-shadow: 0 0 10px $primary-transparent-color;
+}
+
+.value {
+	flex-grow: 1;
+	font-family: inherit;
+}
+
+.clearBtn {
+	background: none;
+	color: $primary-transparent-color;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1.25rem;
+	font-family: inherit;
+}
+
+.clearBtn:focus,
+.clearBtn:hover {
+	color: $primary-color;
+}
+
+.divider {
+	background-color: $primary-transparent-color;
+	align-self: stretch;
+	width: 0.05rem;
+	font-family: inherit;
+}
+
+.caret {
+	font-family: inherit;
+
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 6px solid $primary-color;
+
+	transition: transform ease-in-out 0.3s;
+
+	// animation: rotate180 0.3s ease-in-out;
+}
+
+.caret.rotate {
+	transform: rotate(180deg);
+}
+
+.options {
+	width: 100%;
+	max-height: 15rem;
+	overflow-y: auto;
+
+	position: absolute;
+	left: 0;
+	top: calc(100% + 0.25rem);
+	z-index: 998;
+
+	border-radius: 0.5rem;
+	border: 2px solid $primary-color;
+
+	display: none;
+	list-style: none;
+	background-color: $secondary-color;
+	font-family: inherit;
+
+	transition: 0.5s ease;
+
+	animation: optionTransition 0.2s ease-in-out;
+}
+
+.options.show {
+	display: block;
+}
+
+.option {
+	padding: 0.5rem 0.5rem;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.option.highlighted {
+	background-color: $primary-transparent-color;
+	color: $primary-color;
+}
+
+.option.selected {
+	background-color: $primary-color;
+	color: $secondary-color;
+}

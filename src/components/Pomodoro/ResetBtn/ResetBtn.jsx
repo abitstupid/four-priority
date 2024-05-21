@@ -1,13 +1,15 @@
 import { FaArrowRotateRight } from "react-icons/fa6";
-import styles from "./ResetBtn.module.scss";
+import Button from "../../Buttons/Button";
 
 export default function ResetBtn(props) {
 	return (
-		<button
-			{...props}
-			className={`${styles.timerResetBtn} timerBtn  btn btnPrimary`}
-		>
-			<FaArrowRotateRight className="iconSize" />
-		</button>
+		<div {...props}>
+			<Button
+				variant="primary"
+				type="squareLarge"
+			>
+				<FaArrowRotateRight className="iconSize" />
+			</Button>
+		</div>
 	);
 }

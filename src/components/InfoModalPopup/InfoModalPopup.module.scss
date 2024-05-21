@@ -13,26 +13,30 @@
 	height: 100svh;
 	height: 100dvh;
 	width: 100%;
-}
 
-.infoModal {
-	position: relative;
+	.infoModal {
+		position: relative;
+		align-items: flex-start;
+		justify-content: center;
 
-	width: 85%;
-	max-width: 800px;
-	height: 55%;
-	padding: 2rem;
-	overflow: auto;
+		width: 85%;
+		max-width: 500px;
+		max-height: 70%;
 
-	background-color: $secondary-color;
+		padding: 1rem;
+		padding-top: 3rem;
+		overflow: auto;
 
-	border-radius: 0.5rem;
-	border: 2px solid $primary-color;
-}
+		background-color: $secondary-color;
 
-.infoModalCloseBtn {
-	position: absolute;
+		border-radius: 0.5rem;
+		border: 2px solid $primary-color;
 
-	top: 0.5rem;
-	right: 0.5rem;
+		.infoModalCloseBtn {
+			position: absolute;
+
+			top: 0.5rem;
+			right: 0.5rem;
+		}
+	}
 }

@@ -1,0 +1,104 @@
+@import "./../../global.scss";
+
+/* UI CLASSES */
+%toggleBtnBasic {
+	appearance: none;
+	border: 2px solid $primary-color;
+	border-radius: 4px;
+
+	width: auto;
+	height: auto;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0.5rem 1rem;
+}
+
+.btn {
+	@extend %toggleBtnBasic;
+}
+
+.btnPrimary {
+	background-color: $secondary-color;
+	color: $primary-color;
+}
+
+.btnSecondary {
+	background-color: $primary-color;
+	color: $secondary-color;
+}
+
+.btnTransparent {
+	background-color: transparent;
+	color: $primary-color;
+}
+
+.btnSquareLarge {
+	height: 40px;
+	width: 40px;
+	padding: 0;
+}
+
+.btnSquareSmall {
+	width: 28px;
+	height: 28px;
+
+	padding: 0;
+}
+
+.btnSquareNoBorder {
+	border: none;
+	padding: 4px;
+}
+
+.btnRect {
+	height: 40px;
+
+	padding: 8px 10px;
+}
+
+.btnCustom {
+	padding: 0;
+}
+
+.toggleBtnWrapper {
+	width: calc(100vw - 16px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+a:link,
+a:hover,
+a:active,
+a:focus,
+a:visited {
+	text-decoration: none;
+	color: $primary-color;
+}
+
+.linkUnderlined {
+	text-decoration: underline !important;
+}
+
+.linkUnderlined:hover {
+	font-weight: bold;
+}
+
+// tag element PARENT SHOULD HAVE POSITION RELATIVE
+
+.tag {
+	display: inline-block;
+	font-size: 0.875rem;
+	position: absolute;
+	top: 1%;
+}
+
+@media screen and (max-width: 550px) {
+	.toggleBtnWrapper {
+		gap: 0.5rem;
+	}
+}

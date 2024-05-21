@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 
 import styles from "./PriorityCard.module.scss";
 import { Link } from "react-router-dom";
-import { MdOutlineModeEdit } from "react-icons/md";
+import { AiOutlineFullscreen } from "react-icons/ai";
+import Button from "../Buttons/Button";
+import Task from "../Task/Task";
 
 export default function PriorityCardLink({ cardsData }) {
 	const [cardsDataState, setCardsDataState] = useState(cardsData);
+	const [viewedCardId, setViewedCardId] = useState(false);
 
 	useEffect(() => {
 		setCardsDataState(cardsData);
@@ -19,14 +22,22 @@ export default function PriorityCardLink({ cardsData }) {
 					return (
 						<Fragment key={card.id}>
 							<Link
-								to={`/editor?content=${encodeURIComponent(
-									JSON.stringify(card)
-								)}&id=${card.id}`}
+								to={`/priorityPage?id=${encodeURIComponent(
+									card.id
+								)}`}
 							>
 								<div
 									className={`${styles.cardContainer}`}
-									style={{ position: "relative" }}
+									onMouseEnter={() => {
+										setViewedCardId(card.id);
+									}}
+									onTouchStart={() => {
+										setViewedCardId(card.id);
+									}}
+									onMouseLeave={() => setViewedCardId(false)}
+									onTouchEnd={() => setViewedCardId(false)}
 								>
+									{/* CONTENT div */}
 									<div
 										className={`${styles.priorityCard} primaryFont`}
 										id={card?.name}
@@ -34,32 +45,48 @@ export default function PriorityCardLink({ cardsData }) {
 											height: `${card?.styles?.height}`,
 											backgroundColor: `${card?.styles?.backgroundColor}`,
 										}}
-										dangerouslySetInnerHTML={{
-											__html: card?.content,
-										}}
-									></div>
+									>
+										<Task
+											taskArr={card.content}
+											cardId={card.id}
+										/>
+									</div>
+									{/* heading */}
 									<p
 										className={`${styles.cardHeading} primaryFontSemiBold`}
 									>
 										{card?.heading}
 									</p>
 
-									<span
-										className={`${styles.cardEditBtn} btn ${
-											card?.styles?.btnClass ||
-											"btnSecondary"
-										} `}
-									>
-										<MdOutlineModeEdit
-											fill={`${
-												card?.styles?.iconFill ||
-												"#ffffff"
-											}`}
-											className="iconSizeSmall"
-										/>
+									<span className={`${styles.cardEditBtn}`}>
+										<Button
+											variant={card?.styles?.btnVariant}
+											type="squareSmall"
+										>
+											{viewedCardId === card.id ? (
+												<AiOutlineFullscreen
+													fill={`${
+														card?.styles
+															?.iconFill ||
+														"#1e1e1e"
+													} `}
+													className="iconSizeVerySmall"
+												/>
+											) : (
+												<AiOutlineFullscreen
+													fill={`${
+														card?.styles
+															?.iconFill ||
+														"#1e1e1e"
+													} `}
+													className="iconSizeSmall"
+												/>
+											)}
+										</Button>
 									</span>
 								</div>
 							</Link>
+							{/* ADD TASKS BTN */}
 						</Fragment>
 					);
 				})}
@@ -69,5 +96,5 @@ export default function PriorityCardLink({ cardsData }) {
 }
 
 PriorityCardLink.propTypes = {
-	cardsData: PropTypes.array,
+	cardsData: PropTypes.array.isRequired,
 };

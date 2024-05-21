@@ -1,19 +1,16 @@
 @import "./../../global.scss";
 
-.homeHeaderWrapper {
-	height: $top-nav-height;
-	margin-bottom: 0.5rem;
+.addTaskBtn,
+.allTaskBtn {
+	position: fixed;
+	right: 1.5rem;
+	z-index: 998;
+	transition: all 0.4s;
+}
+.addTaskBtn {
+	bottom: calc($bottom-nav-height + 2rem);
 }
 
-.homeHeader {
-	margin-bottom: 0.5rem;
-	font-weight: 900;
-}
-
-.appLogoWrapper {
-	justify-content: space-between;
-}
-
-.appLogoBeta {
-	left: 48px;
+.allTaskBtn {
+	bottom: calc($bottom-nav-height + 2.5rem + 52px);
 }

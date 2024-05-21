@@ -11,21 +11,19 @@ export default function InfoButton({ cardId }) {
 	}
 
 	return (
-		<>
-			<div className={`${styles.infoBtn} center btn btnSecondary`}>
-				<FaInfo
-					fill="#ffffff"
-					className="iconSizeSmall"
-					onClick={handleModal}
+		<div className={`${styles.infoBtn} center btn btnSecondary`}>
+			<FaInfo
+				fill="#ffffff"
+				className="iconSizeSmall"
+				onClick={handleModal}
+			/>
+			{isModalActive && (
+				<InfoModalPopup
+					cardId={cardId}
+					handleModal={handleModal}
 				/>
-				{isModalActive && (
-					<InfoModalPopup
-						cardId={cardId}
-						handleModal={handleModal}
-					/>
-				)}
-			</div>
-		</>
+			)}
+		</div>
 	);
 }
 

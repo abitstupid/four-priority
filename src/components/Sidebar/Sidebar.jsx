@@ -3,18 +3,22 @@ import { IoClose } from "react-icons/io5";
 
 import styles from "./Sidebar.module.scss";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import Button from "../Buttons/Button";
 
 export default function Sidebar({ handleSidebarBtnClick }) {
 	useLockBodyScroll();
 	return (
 		<div className={`${styles.sidebarWrapper} centerV`}>
 			<div className={`${styles.sidebar}`}>
-				<button
-					className={`${styles.sidebarCloseBtn} btn btnPrimary`}
-					onClick={handleSidebarBtnClick}
-				>
-					<IoClose className="iconSize" />
-				</button>
+				<div className={`${styles.sidebarCloseBtn}`}>
+					<Button
+						variant="primary"
+						type="squareLarge"
+						onClick={handleSidebarBtnClick}
+					>
+						<IoClose className="iconSize" />
+					</Button>
+				</div>
 				<div className={`${styles.sidebarContent}`}>
 					<h4 className={` marginBottomSmall`}>Upcoming Features</h4>
 					<ul className="primaryFont">

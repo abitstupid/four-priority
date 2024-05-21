@@ -1,12 +1,15 @@
 import { IoClose } from "react-icons/io5";
+import Button from "../../Buttons/Button";
 
 export default function BackBtn(props) {
 	return (
-		<button
-			{...props}
-			className="btn btnPrimary"
-		>
-			<IoClose className="iconSize" />
-		</button>
+		<div {...props}>
+			<Button
+				variant="primary"
+				type="squareLarge"
+			>
+				<IoClose className="iconSize" />
+			</Button>
+		</div>
 	);
 }

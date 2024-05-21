@@ -4,6 +4,7 @@ import { GoHomeFill } from "react-icons/go";
 import { HiMiniQueueList } from "react-icons/hi2";
 import styles from "./BottomNav.module.scss";
 import { useState } from "react";
+import Button from "../Buttons/Button";
 
 export default function BottomNav() {
 	const location = useLocation();
@@ -18,31 +19,33 @@ export default function BottomNav() {
 				to={"/"}
 				onClick={() => handleNavBtnClick("/")}
 			>
-				<div
-					className={`${styles.bottomNavBtn} ${
-						activeBtn === "/" ? styles.activeNavBtn : ""
-					} btn`}
+				<Button
+					variant={activeBtn === "/" ? "secondary" : "primary"}
+					type="squareLarge"
+					onClick={handleNavBtnClick}
 				>
 					<GoHomeFill
 						fill={activeBtn === "/" ? "#ffffff" : "#1e1e1e"}
 						className="iconSizeSmall"
 					/>
-				</div>
+				</Button>
 			</Link>
 			<Link
 				to={"/features"}
 				onClick={() => handleNavBtnClick("/features")}
 			>
-				<div
-					className={`${styles.bottomNavBtn} ${
-						activeBtn === "/features" ? styles.activeNavBtn : ""
-					} btn`}
+				<Button
+					variant={
+						activeBtn === "/features" ? "secondary" : "primary"
+					}
+					type="squareLarge"
+					onClick={handleNavBtnClick}
 				>
 					<HiMiniQueueList
 						fill={activeBtn === "/features" ? "#ffffff" : "#1e1e1e"}
 						className="iconSizeSmall"
 					/>
-				</div>
+				</Button>
 			</Link>
 		</div>
 	);

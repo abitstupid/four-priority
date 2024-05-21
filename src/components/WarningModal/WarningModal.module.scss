@@ -1,4 +1,4 @@
-@import "./../../../global.scss";
+@import "./../../global.scss";
 
 .warningModalWrapper {
 	position: fixed;
@@ -22,17 +22,5 @@
 		padding: 2rem;
 		border-radius: 8px;
 		border: 2px solid $primary-color;
-
-		.warningModalBtnWrapper {
-			gap: 1rem;
-
-			button:nth-child(1) {
-				width: 35%;
-			}
-
-			button:nth-child(2) {
-				width: 55%;
-			}
-		}
 	}
 }

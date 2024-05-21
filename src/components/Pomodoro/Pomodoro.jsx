@@ -5,48 +5,62 @@ import PlayBtn from "./PlayBtn/PlayBtn";
 import PauseBtn from "./PauseBtn/PauseBtn";
 import SettingsBtn from "./SettingsBtn/SettingsBtn";
 import SettingsContext from "./Settings/SettingsContext";
-import WarningModal from "./WarningModal/WarningModal";
+import WarningModal from "../WarningModal/WarningModal";
 import ResetBtn from "./ResetBtn/ResetBtn";
 import styles from "./Pomodoro.module.scss";
+import useWarningModal from "../../utility/useWarningModal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+// custom css for toast in global.scss
 
 const primaryColor = "#1e1e1e";
 
 export default function Pomodoro() {
 	const settingsInfo = useContext(SettingsContext);
+
 	const [isPaused, setIsPaused] = useState(true);
 	const [secondsLeft, setSecondsLeft] = useState(0);
 	const [mode, setMode] = useState("work"); //work //break//null
-	const [showWarning, setShowWarning] = useState(false);
-	const [warningType, setWarningType] = useState(null);
 
 	const secondsLeftRef = useRef(secondsLeft);
 	const isPausedRef = useRef(isPaused);
 	const modeRef = useRef(mode);
+
+	const { isVisible, showWarningModal, handleCancel, handleContinue } =
+		useWarningModal();
 
 	const isTimerEqualWork =
 		secondsLeftRef.current === settingsInfo.workMinutes * 60;
 	const isTimerEqualBreak =
 		secondsLeftRef.current === settingsInfo.breakMinutes * 60;
 
-	const warningTypes = {
-		RESET: "reset",
-		SETTINGS: "settings",
-	};
+	// TOAST FUNCTION
+	// custom css in global.scss
+	const notify = () =>
+		toast.info(
+			"Don't refresh or go to another page once timer starts or it'll Reset.",
+			{
+				className: "custom-toast-info",
+				progressClassName: "custom-toast-info-progress-bar",
+				iconClassName: "custom-toast-info .Toastify__toast-icon",
+			}
+		);
 
 	// PLAY PAUSE
 	function handleTimerPlayPause() {
+		isPaused !== false ? notify() : "";
 		setIsPaused(!isPaused);
 		isPausedRef.current = !isPaused;
 	}
 
 	//SETTINGS
 	function handleSettingsBtnClick() {
+		setIsPaused(true);
 		settingsInfo.setShowSettings(!settingsInfo.showSettings);
 	}
 
 	// RESET
 	function handleTimerReset() {
-		setShowWarning(false);
 		setIsPaused(true);
 		isPausedRef.current = true;
 
@@ -88,6 +102,12 @@ export default function Pomodoro() {
 			if (isPausedRef.current) {
 				return;
 			}
+
+			if (mode === "break" && secondsLeftRef.current === 0) {
+				setIsPaused(true);
+				isPausedRef.current = true;
+			}
+
 			if (secondsLeftRef.current === 0) {
 				return switchMode();
 			}
@@ -96,40 +116,31 @@ export default function Pomodoro() {
 		}, 1000);
 
 		return () => clearInterval(interval);
-	}, [settingsInfo]);
+	}, [settingsInfo, mode]);
 
 	// WARNINGS
-	const handleWarningAction = (actionType, action) => {
+	const handleWarning = (action) => {
 		if (
 			secondsLeftRef.current !== 0 &&
 			!isTimerEqualWork &&
 			!isTimerEqualBreak
 		) {
-			setWarningType(actionType);
-			setShowWarning(true);
+			showWarningModal(action, handleCancel);
 		} else {
 			action();
 		}
 	};
 
-	// WARNING MODAL
-	function handleContinue(execFunc) {
-		setShowWarning(false);
-		execFunc();
-	}
-
 	// SHOW WARNING FOR RELOADING
-	useEffect(() => {
-		if (!isTimerEqualWork || !isTimerEqualBreak) {
-			settingsInfo.setShowExitPrompt(true);
-		}
-	}, [settingsInfo, isTimerEqualWork, isTimerEqualBreak]);
+	// useEffect(() => {
+	// 	if (!isTimerEqualWork || !isTimerEqualBreak) {
+	// 		settingsInfo.setShowExitPrompt(true);
+	// 	}
 
-	useEffect(() => {
-		return () => {
-			settingsInfo.setShowExitPrompt(false);
-		};
-	}, []);
+	// 	return () => {
+	// 		settingsInfo.setShowExitPrompt(false);
+	// 	};
+	// }, [settingsInfo, isTimerEqualWork, isTimerEqualBreak]);
 
 	const totalSeconds =
 		mode === "work"
@@ -158,6 +169,9 @@ export default function Pomodoro() {
 				})}
 			/>
 
+			<p className={`${styles.timerModeText} primaryFont`}>
+				{mode === "work" ? "Work" : "Break"}
+			</p>
 			<div className={`${styles.timerBtnWrapper} flex `}>
 				{/* PLAY PAUSE */}
 				{isPaused ? (
@@ -169,36 +183,37 @@ export default function Pomodoro() {
 				{/* SETTINGS */}
 				<SettingsBtn
 					onClick={() => {
-						handleWarningAction(
-							warningTypes.SETTINGS,
-							handleSettingsBtnClick
-						);
+						handleWarning(handleSettingsBtnClick);
 					}}
 				/>
 
 				{/* RESET */}
 				<ResetBtn
 					onClick={() => {
-						handleWarningAction(
-							warningTypes.RESET,
-							handleTimerReset
-						);
+						handleWarning(handleTimerReset);
 					}}
 				/>
 			</div>
+
 			{/* WARNING MODAL */}
-			{showWarning && (
-				<WarningModal
-					onContinue={() => {
-						handleContinue(
-							warningType === warningTypes.RESET
-								? handleTimerReset
-								: handleSettingsBtnClick
-						);
-					}}
-					onCancel={() => setShowWarning(false)}
-				/>
-			)}
+			<WarningModal
+				isVisible={isVisible}
+				onCancel={handleCancel}
+				onContinue={handleContinue}
+			/>
+			<ToastContainer
+				position="bottom-right"
+				autoClose={5050}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+				transition:Bounce
+			/>
 		</div>
 	);
 }

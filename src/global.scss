@@ -16,6 +16,7 @@
 	background-color: $primary-color;
 	color: $secondary-color;
 }
+
 *,
 *::after,
 *::before {
@@ -27,6 +28,61 @@
 body {
 	padding: 24px;
 	font-family: "ClashGrotesk-Regular", sans-serif;
+}
+
+.checkboxWrapper *,
+.checkboxWrapper ::after,
+.checkboxWrapper ::before {
+	user-select: none;
+}
+
+.checkboxWrapper {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+.checkboxWrapper .label {
+	cursor: pointer;
+}
+
+.checkboxWrapper input[type="checkbox"] {
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	opacity: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.checkboxWrapper .label svg {
+	vertical-align: middle;
+}
+
+.checkboxWrapper .path1 {
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+	transition: 0.5s stroke-dashoffset;
+	opacity: 0;
+}
+
+.checkboxWrapper .taskCheckbox:checked + label svg g path {
+	stroke-dashoffset: 0;
+	opacity: 1;
+}
+
+.custom-toast-info {
+	background-color: $secondary-color !important;
+	color: $primary-color !important;
+}
+.custom-toast-info .Toastify__progress-bar {
+	background-color: $primary-color !important;
+}
+
+.custom-toast-info .Toastify__toast-icon svg {
+	fill: $primary-color !important;
 }
 
 @media screen and (max-width: 540px) {

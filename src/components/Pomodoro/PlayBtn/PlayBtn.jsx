@@ -1,13 +1,15 @@
 import { FaPlay } from "react-icons/fa";
-import styles from "./PlayBtn.module.scss";
+import Button from "../../Buttons/Button";
 
 export default function PlayBtn(props) {
 	return (
-		<button
-			{...props}
-			className={`${styles.timerPlayBtn} timerBtn  btn btnPrimary`}
-		>
-			<FaPlay className="iconSize" />
-		</button>
+		<div {...props}>
+			<Button
+				variant="primary"
+				type="squareLarge"
+			>
+				<FaPlay className="iconSize" />
+			</Button>
+		</div>
 	);
 }

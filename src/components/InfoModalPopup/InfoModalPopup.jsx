@@ -4,6 +4,7 @@ import { IoClose } from "react-icons/io5";
 
 import data from "./../../data.json";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import Button from "../Buttons/Button";
 
 const INFO_DATA = data.infoData;
 
@@ -11,18 +12,23 @@ export default function InfoModalPopup({ cardId, handleModal }) {
 	useLockBodyScroll();
 	return (
 		<div className={`${styles.infoModalPopupWrapper} center`}>
-			<div className={`${styles.infoModal} centerH column`}>
-				<button
-					className={`${styles.infoModalCloseBtn} btn btnPrimary btnSmall`}
-					onClick={handleModal}
-				>
-					<IoClose className="iconSize" />
-				</button>
+			<div className={`${styles.infoModal} column`}>
+				<div className={`${styles.infoModalCloseBtn} `}>
+					<Button
+						variant="primary"
+						type="squareLarge"
+						onClick={handleModal}
+					>
+						<IoClose className="iconSize" />
+					</Button>
+				</div>
 
 				{/* ID = 99 is for home.jsx */}
 				{cardId === 99 ? (
 					<>
-						<p>{INFO_DATA.welcome.content}</p>
+						<p className="primaryFontMedium marginBottomMedium">
+							{INFO_DATA.welcome.content}
+						</p>
 						{INFO_DATA?.cardsInfo?.map((info) => {
 							return (
 								<div
@@ -30,7 +36,14 @@ export default function InfoModalPopup({ cardId, handleModal }) {
 									key={info.id}
 								>
 									{info?.content?.map((para, idx) => {
-										return <p key={idx}>{para}</p>;
+										return (
+											<p
+												key={idx}
+												className="marginBottomMedium"
+											>
+												{para}
+											</p>
+										);
 									})}
 								</div>
 							);
@@ -45,7 +58,14 @@ export default function InfoModalPopup({ cardId, handleModal }) {
 									key={info.id}
 								>
 									{info.content.map((para, idx) => {
-										return <p key={idx}>{para}</p>;
+										return (
+											<p
+												key={idx}
+												className="marginBottomMedium"
+											>
+												{para}
+											</p>
+										);
 									})}
 								</div>
 							);

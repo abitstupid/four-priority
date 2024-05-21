@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import data from "./../../data.json";
 import Sidebar from "../Sidebar/Sidebar";
+import Button from "../Buttons/Button";
 
 const APP_TITLE = data.appTitle;
 
@@ -26,6 +27,11 @@ export default function TopNav({ cardId }) {
 	function handleSidebarBtnClick() {
 		setIsActiveSidebar(!isActiveSidebar);
 	}
+
+	const handleBackButtonClick = () => {
+		navigate(-1);
+	};
+
 	return (
 		<div className={`${styles.topNavWrpper}`}>
 			{isHome ? (
@@ -86,12 +92,15 @@ export default function TopNav({ cardId }) {
 			) : (
 				// GO BACK BTN
 				<Link to={"/"}>
-					<button
-						className={`${styles.BackBtn} btn btnPrimary`}
-						onClick={() => navigate(-1)}
-					>
-						<IoArrowBackOutline className="iconSize" />
-					</button>
+					<div className={`${styles.BackBtn}`}>
+						<Button
+							variant="primary"
+							type="squareLarge"
+							onClick={handleBackButtonClick}
+						>
+							<IoArrowBackOutline className="iconSize" />
+						</Button>
+					</div>
 				</Link>
 			)}
 
@@ -101,7 +110,7 @@ export default function TopNav({ cardId }) {
 
 				{/*SIDEBAR  */}
 				<div
-					className={`${styles.sidebarBtn} btn btnPrimary`}
+					className={`${styles.sidebarBtn}`}
 					onClick={handleSidebarBtnClick}
 				></div>
 				{isActiveSidebar && (
@@ -113,5 +122,5 @@ export default function TopNav({ cardId }) {
 }
 
 TopNav.propTypes = {
-	cardId: PropTypes.number,
+	cardId: PropTypes.number.isRequired,
 };

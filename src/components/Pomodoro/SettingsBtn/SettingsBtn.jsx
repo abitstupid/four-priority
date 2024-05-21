@@ -1,13 +1,15 @@
 import { IoMdSettings } from "react-icons/io";
-import styles from "./SettingsBtn.module.scss";
+import Button from "../../Buttons/Button";
 
 export default function SettingsBtn(props) {
 	return (
-		<button
-			{...props}
-			className={`${styles.timerSettingsBtn} timerBtn  btn btnPrimary`}
-		>
-			<IoMdSettings className="iconSize" />
-		</button>
+		<div {...props}>
+			<Button
+				variant="primary"
+				type="squareLarge"
+			>
+				<IoMdSettings className="iconSize" />
+			</Button>
+		</div>
 	);
 }

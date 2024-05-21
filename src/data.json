@@ -1,5 +1,6 @@
 {
 	"appTitle": "four-priority",
+	"version": 1.1,
 	"PRIORITY_CARDS": [
 		{
 			"id": 0,
@@ -7,12 +8,18 @@
 			"type": 1,
 			"heading": "Priority 1",
 			"isActive": false,
-			"content": "<p1>This is a paragraph</p1>",
+			"content": [
+				{
+					"id": 0,
+					"taskName": "Finish Studying Chapter 1 of Mathematics before 1PM.",
+					"completed": false
+				}
+			],
 			"styles": {
 				"height": "30vh",
 				"backgroundColor": "#FFA2A2",
-				"btnClass": "btnSecondary",
-				"iconFill": "#ffffff"
+				"btnVariant": "primary",
+				"iconFill": "#1e1e1e"
 			}
 		},
 		{
@@ -21,11 +28,17 @@
 			"type": 2,
 			"heading": "Priority 2",
 			"isActive": false,
-			"content": "<ol><li>This is a list item</li></ol>",
+			"content": [
+				{
+					"id": 0,
+					"taskName": "Practise Piano Level 1 Exercises by 4PM.",
+					"completed": false
+				}
+			],
 			"styles": {
 				"height": "25vh",
 				"backgroundColor": "#FCFEAB",
-				"btnClass": "btnPrimary",
+				"btnVariant": "primary",
 				"iconFill": "#1e1e1e"
 			}
 		},
@@ -35,11 +48,17 @@
 			"type": 3,
 			"heading": "Priority 3",
 			"isActive": false,
-			"content": "<ul><li>THis is an unordered list item</li></ul>",
+			"content": [
+				{
+					"id": 0,
+					"taskName": "Read 10 Pages of 1984 by George Orwell tonight before 11PM",
+					"completed": false
+				}
+			],
 			"styles": {
 				"height": "25vh",
 				"backgroundColor": "#C3FFB4",
-				"btnClass": "btnPrimary",
+				"btnVariant": "primary",
 				"iconFill": "#1e1e1e"
 			}
 		},
@@ -49,14 +68,26 @@
 			"type": 4,
 			"heading": "Others",
 			"isActive": false,
-			"content": "<p>This is also a paragraph</p>",
+			"content": [
+				{
+					"id": 0,
+					"taskName": "Meditation for minimum of 10 Minutes throughout the day whenever you're free",
+					"completed": false
+				}
+			],
 			"styles": {
 				"height": "20vh",
 				"backgroundColor": "#DCD8D8",
-				"btnClass": "btnPrimary",
+				"btnVariant": "primary",
 				"iconFill": "#1e1e1e"
 			}
 		}
+	],
+	"selectOptions": [
+		{ "id": 0, "label": "Priority 1", "type": 1 },
+		{ "id": 1, "label": "Priority 2", "type": 2 },
+		{ "id": 2, "label": "Priority 3", "type": 3 },
+		{ "id": 3, "label": "Other", "type": 4 }
 	],
 	"infoData": {
 		"welcome": {

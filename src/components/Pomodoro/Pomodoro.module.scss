@@ -7,6 +7,14 @@
 
 	padding: 0.5rem;
 
+	.timerModeText {
+		font-size: 1rem;
+		position: absolute;
+		top: 1rem;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+
 	.timerBtnWrapper {
 		width: 100%;
 
