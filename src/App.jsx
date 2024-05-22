@@ -155,15 +155,6 @@ function App() {
 						/>
 
 						<Route
-							path="/index"
-							element={
-								<Home
-									cardsData={cardsData}
-									appTitle={DATA.APP_TITLE}
-								/>
-							}
-						/>
-						<Route
 							index
 							element={
 								<Home
