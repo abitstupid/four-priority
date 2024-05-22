@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 import styles from "./PriorityCard.module.scss";
@@ -10,10 +10,24 @@ import Task from "../Task/Task";
 export default function PriorityCardLink({ cardsData }) {
 	const [cardsDataState, setCardsDataState] = useState(cardsData);
 	const [viewedCardId, setViewedCardId] = useState(false);
+	const cardContainerRef = useRef(null);
 
 	useEffect(() => {
 		setCardsDataState(cardsData);
 	}, [cardsData]);
+
+	const handleCardClick = (e) => {
+		// if (event.target === "checkbox") {
+		// 	event.preventDefault();
+		// }
+		if (cardContainerRef.current) {
+			const hasCheckbox =
+				cardContainerRef.current.querySelector(
+					`input[type="checkbox"]`
+				) !== null;
+			hasCheckbox ? e.stopPropagation() : "";
+		}
+	};
 
 	return (
 		<>
@@ -28,6 +42,8 @@ export default function PriorityCardLink({ cardsData }) {
 							>
 								<div
 									className={`${styles.cardContainer}`}
+									ref={cardContainerRef}
+									onClick={handleCardClick}
 									onMouseEnter={() => {
 										setViewedCardId(card.id);
 									}}

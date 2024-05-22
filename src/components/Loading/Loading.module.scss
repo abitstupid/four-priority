@@ -1,0 +1,203 @@
+@import "./../../global.scss";
+
+// step 1
+
+@keyframes intialHeight {
+	0% {
+		height: 30%;
+	}
+	100% {
+		height: 30%;
+	}
+}
+
+@keyframes slideLeft {
+	0% {
+		border-radius: 0;
+		height: 100%;
+		left: 0;
+	}
+	100% {
+		border-radius: 0;
+		height: 100%;
+		left: -110%;
+	}
+}
+
+@keyframes slideRight {
+	0% {
+		border-radius: 0;
+
+		height: 100%;
+		right: 0;
+	}
+	100% {
+		border-radius: 0;
+
+		height: 100%;
+		right: -110%;
+	}
+}
+
+// step 2
+@keyframes extendHeightFull {
+	0% {
+		height: 30%;
+		border-radius: 0;
+	}
+	100% {
+		border-radius: 0;
+		height: 70%;
+	}
+}
+
+@keyframes extendHeightFullLeft {
+	0% {
+		border-radius: 0;
+		height: 100%;
+	}
+	50% {
+		border-radius: 0;
+		height: 100%;
+	}
+	100% {
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+
+		height: 50%;
+	}
+}
+
+@keyframes extendHeightFullRight {
+	0% {
+		border-radius: 0;
+		height: 100%;
+	}
+	50% {
+		border-radius: 0;
+		height: 100%;
+	}
+	100% {
+		border-top-right-radius: 50%;
+		border-bottom-right-radius: 50%;
+
+		height: 50%;
+	}
+}
+
+@keyframes initialFont {
+	0% {
+		bottom: -20%;
+	}
+	100% {
+		bottom: -20%;
+	}
+}
+@keyframes displayFont {
+	0% {
+		bottom: -20%;
+	}
+	100% {
+		bottom: 2%;
+	}
+}
+
+// step 3
+@keyframes opacityMaintain {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes disappear {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.loadingWrapper {
+	width: 100%;
+	height: 100vh;
+
+	background-color: $primary-color;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	animation: opacityMaintain 3000ms ease, disappear 550ms 3000ms ease;
+
+	.loading {
+		height: 200px;
+		min-height: 200px;
+
+		width: 200px;
+		min-width: 200px;
+		// background-color: $secondary-color;
+		position: relative;
+		overflow: hidden;
+
+		.loadingInnerYellow {
+			position: absolute;
+			top: 20%;
+			left: 50%;
+			transform: translate(-50%, -20%);
+
+			height: 70%;
+			width: 30%;
+			background-color: #f6f95a;
+			animation: intialHeight 1000ms ease-in,
+				extendHeightFull 1000ms 1000ms ease-in-out;
+		}
+
+		.loadingInnerYellow::after,
+		.loadingInnerYellow::before {
+			content: "";
+			height: 50%;
+			width: 100%;
+
+			position: absolute;
+			top: 0;
+		}
+
+		.loadingInnerYellow::before {
+			left: -110%;
+
+			background-color: #f55f5f;
+			border-bottom-left-radius: 50%;
+			border-bottom-right-radius: 50%;
+
+			animation: slideLeft 1000ms ease-in-out,
+				extendHeightFullLeft 2000ms 1000ms ease-in-out;
+		}
+
+		.loadingInnerYellow::after {
+			right: -110%;
+
+			background-color: #8efb73;
+			border-top-right-radius: 50%;
+			border-bottom-right-radius: 50%;
+
+			animation: slideRight 1000ms ease-in-out,
+				extendHeightFullRight 2000ms 1000ms ease-in-out;
+		}
+
+		.appTitle {
+			display: block;
+			position: absolute;
+			bottom: 5%;
+
+			font-size: 1.5rem;
+			color: $secondary-color;
+
+			animation: initialFont 2000ms ease-in,
+				displayFont 1000ms 2000ms ease-in-out;
+		}
+	}
+}

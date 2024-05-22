@@ -8,11 +8,14 @@ import Home from "./pages/home/home";
 import Features from "./pages/features/features";
 import AppContext from "./AppContext";
 import PriorityPage from "./pages/priorityPage/priorityPage";
+import Loading from "./components/Loading/Loading";
 
 const DATA = data;
 const DATA_VERSION = DATA.version;
+// ALL TASKS MANAGED BY STATE cardData , everything else is passed through DATA.*
 
 function App() {
+	const [isLoading, setIsLoading] = useState(true);
 	const [cardsData, setCardsData] = useState(() => {
 		const savedData = localStorage.getItem("preSavedData");
 		const savedVersion = localStorage.getItem("dataVersion");
@@ -34,9 +37,20 @@ function App() {
 		localStorage.setItem("preSavedData", JSON.stringify(cardsData));
 	}, [cardsData]);
 
+	// useEffect(() => {
+	// 	console.log(cardsData);
+	// }, [cardsData]);
+
+	// LOADING
 	useEffect(() => {
-		console.log(cardsData);
-	}, [cardsData]);
+		if (localStorage.getItem("preSavedData")) {
+			setIsLoading(false);
+		}
+
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 3500);
+	}, [isLoading]);
 
 	function handleAddTaskBtn(optionId, taskContent) {
 		const updatedCardsData = cardsData.map((card) => {
@@ -125,35 +139,39 @@ function App() {
 			}}
 		>
 			<div className="App">
-				<Routes>
-					<Route
-						path="/"
-						element={
-							<Home
-								cardsData={cardsData}
-								appTitle={DATA.APP_TITLE}
-							/>
-						}
-					/>
-					<Route
-						index
-						element={
-							<Home
-								cardsData={cardsData}
-								appTitle={DATA.APP_TITLE}
-							/>
-						}
-					/>
+				{isLoading ? (
+					<Loading />
+				) : (
+					<Routes>
+						<Route
+							path="/"
+							element={
+								<Home
+									cardsData={cardsData}
+									appTitle={DATA.APP_TITLE}
+								/>
+							}
+						/>
+						<Route
+							index
+							element={
+								<Home
+									cardsData={cardsData}
+									appTitle={DATA.APP_TITLE}
+								/>
+							}
+						/>
 
-					<Route
-						path="/features"
-						element={<Features />}
-					/>
-					<Route
-						path="/priorityPage"
-						element={<PriorityPage />}
-					/>
-				</Routes>
+						<Route
+							path="/features"
+							element={<Features />}
+						/>
+						<Route
+							path="/priorityPage"
+							element={<PriorityPage />}
+						/>
+					</Routes>
+				)}
 			</div>
 		</AppContext.Provider>
 	);
