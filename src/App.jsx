@@ -9,6 +9,7 @@ import Features from "./pages/features/features";
 import AppContext from "./AppContext";
 import PriorityPage from "./pages/priorityPage/priorityPage";
 import Loading from "./components/Loading/Loading";
+import NotFound from "./pages/notFound/notFound";
 
 const DATA = data;
 const DATA_VERSION = DATA.version;
@@ -152,6 +153,16 @@ function App() {
 								/>
 							}
 						/>
+
+						<Route
+							path="/index"
+							element={
+								<Home
+									cardsData={cardsData}
+									appTitle={DATA.APP_TITLE}
+								/>
+							}
+						/>
 						<Route
 							index
 							element={
@@ -166,9 +177,14 @@ function App() {
 							path="/features"
 							element={<Features />}
 						/>
+
 						<Route
 							path="/priorityPage"
 							element={<PriorityPage />}
+						/>
+						<Route
+							path="*"
+							element={<NotFound />}
 						/>
 					</Routes>
 				)}

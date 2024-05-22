@@ -17,15 +17,12 @@ export default function PriorityCardLink({ cardsData }) {
 	}, [cardsData]);
 
 	const handleCardClick = (e) => {
-		// if (event.target === "checkbox") {
-		// 	event.preventDefault();
-		// }
 		if (cardContainerRef.current) {
 			const hasCheckbox =
 				cardContainerRef.current.querySelector(
 					`input[type="checkbox"]`
 				) !== null;
-			hasCheckbox ? e.stopPropagation() : "";
+			hasCheckbox && e.stopPropagation();
 		}
 	};
 
