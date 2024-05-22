@@ -1,7 +1,16 @@
 {
-	"rewrites": [
-		{ "source": "/", "destination": "/" },
-		{ "source": "/features", "destination": "/" },
-		{ "source": "/priorityPage", "destination": "/" }
+	"routes": [
+		{
+			"src": "/",
+			"dest": "/"
+		},
+		{
+			"src": "/features",
+			"dest": "/"
+		},
+		{
+			"src": "/priorityPage",
+			"dest": "/"
+		}
 	]
 }
