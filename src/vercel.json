@@ -1,16 +1,20 @@
 {
-	"routes": [
+	"rewrites": [
 		{
-			"src": "/",
-			"dest": "/"
+			"source": "/",
+			"destination": "/"
 		},
 		{
-			"src": "/features",
-			"dest": "/"
+			"source": "/features",
+			"destination": "/"
 		},
 		{
-			"src": "/priorityPage",
-			"dest": "/"
+			"source": "/priorityPage",
+			"destination": "/"
+		},
+		{
+			"source": "/notFound",
+			"destination": "/"
 		}
 	]
 }
