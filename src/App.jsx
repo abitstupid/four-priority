@@ -38,6 +38,14 @@ function App() {
 		localStorage.setItem("preSavedData", JSON.stringify(cardsData));
 	}, [cardsData]);
 
+	// supplying cards data to AppContext
+	const [cardsDataContext, setCardsDataContext] = useState(cardsData);
+
+	// and passing again as the cardsData is updated
+	useEffect(() => {
+		setCardsDataContext(cardsData);
+	}, [cardsData]);
+
 	// LOADING
 	useEffect(() => {
 		const firstVisit = localStorage.getItem("firstVisit");
@@ -131,7 +139,7 @@ function App() {
 		<AppContext.Provider
 			value={{
 				DATA,
-				cardsData,
+				cardsDataContext,
 				handleTaskCheckbox,
 				handleTaskDeleteBtn,
 				handleAddTaskBtn,

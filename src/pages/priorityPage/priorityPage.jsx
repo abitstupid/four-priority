@@ -19,7 +19,7 @@ export default function PriorityPage() {
 			<BottomNav />
 
 			<div className={`${styles.priorityPageContent}`}>
-				{appContextData.cardsData.map((card) => {
+				{appContextData.cardsDataContext.map((card) => {
 					if (fetchedCardId == card.id) {
 						return (
 							<Fragment key={card.id}>
