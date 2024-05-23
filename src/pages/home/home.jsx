@@ -5,12 +5,17 @@ import { TbListCheck } from "react-icons/tb";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import TopNav from "../../components/TopNav/TopNav";
 import Button from "../../components/Buttons/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AllTasks from "../../components/AllTasks/AllTasks";
 import AddTaskBtn from "../../components/AddTaskBtn/AddTaskBtn";
 
 export default function Home({ cardsData }) {
+	const [cardsDataState, setCardsDataState] = useState(cardsData);
 	const [showAllTasks, setShowAllTasks] = useState(false);
+
+	useEffect(() => {
+		setCardsDataState(cardsData);
+	}, [cardsData]);
 
 	const HOME_CARD_ID = 99;
 
@@ -23,7 +28,7 @@ export default function Home({ cardsData }) {
 			<TopNav cardId={HOME_CARD_ID} />
 			{/* Bottom Nav */}
 			<BottomNav />
-			<PriorityCardLink cardsData={cardsData} />
+			<PriorityCardLink cardsData={cardsDataState} />
 
 			{/* SHOW ALL TASKS */}
 			<div className={`${styles.allTaskBtn} `}>

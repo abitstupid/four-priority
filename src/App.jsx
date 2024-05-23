@@ -38,20 +38,19 @@ function App() {
 		localStorage.setItem("preSavedData", JSON.stringify(cardsData));
 	}, [cardsData]);
 
-	// useEffect(() => {
-	// 	console.log(cardsData);
-	// }, [cardsData]);
-
 	// LOADING
 	useEffect(() => {
-		if (localStorage.getItem("preSavedData")) {
+		const firstVisit = localStorage.getItem("firstVisit");
+
+		if (!firstVisit) {
+			setTimeout(() => {
+				setIsLoading(false);
+				localStorage.setItem("firstVisit", "true");
+			}, 3500);
+		} else {
 			setIsLoading(false);
 		}
-
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 3500);
-	}, [isLoading]);
+	}, []);
 
 	function handleAddTaskBtn(optionId, taskContent) {
 		const updatedCardsData = cardsData.map((card) => {
