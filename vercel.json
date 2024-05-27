@@ -15,6 +15,26 @@
 		{
 			"src": "/notFound",
 			"dest": "/"
+		},
+		{
+			"src": "/app",
+			"dest": "/"
+		},
+		{
+			"src": "/what",
+			"dest": "/"
+		},
+		{
+			"src": "/why",
+			"dest": "/"
+		},
+		{
+			"src": "/how",
+			"dest": "/"
+		},
+		{
+			"src": "/who",
+			"dest": "/"
 		}
 	]
 }
