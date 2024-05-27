@@ -14,34 +14,35 @@ export default function PriorityPage() {
 	const searchParams = new URLSearchParams(location.search);
 	const fetchedCardId = Number(searchParams.get("id"));
 	return (
-		<div className={`${styles.priorityPageWrapper}`}>
-			<TopNav cardId={fetchedCardId} />
+		<>
 			<BottomNav />
-
-			<div className={`${styles.priorityPageContent}`}>
-				{appContextData.cardsDataContext.map((card) => {
-					if (fetchedCardId == card.id) {
-						return (
-							<Fragment key={card.id}>
-								<h2 className="marginTopMedium marginBottomMedium">
-									{card.heading}
-								</h2>
-								<Task
-									taskArr={card.content}
-									cardId={card.id}
-								/>
-								<AddTaskBtn
-									type="square"
-									locationId={card.id}
-									posX={"1.5rem"}
-									posY={"6rem"}
-								/>
-							</Fragment>
-						);
-					}
-					return null;
-				})}
+			<TopNav cardId={fetchedCardId} />
+			<div className={`${styles.priorityPageWrapper}`}>
+				<div className={`${styles.priorityPageContent}`}>
+					{appContextData.cardsData.map((card) => {
+						if (fetchedCardId == card.id) {
+							return (
+								<Fragment key={card.id}>
+									<h2 className="marginTopMedium marginBottomMedium">
+										{card.heading}
+									</h2>
+									<Task
+										taskArr={card.content}
+										cardId={card.id}
+									/>
+									<AddTaskBtn
+										type="square"
+										locationId={card.id}
+										posX={"1.5rem"}
+										posY={"6rem"}
+									/>
+								</Fragment>
+							);
+						}
+						return null;
+					})}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }

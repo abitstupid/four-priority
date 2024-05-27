@@ -1,0 +1,22 @@
+// cycle through random colors
+
+@keyframes randomColors {
+	0% {
+		background-color: $primary-color;
+		color: $secondary-color;
+	}
+
+	25% {
+		background-color: #ea5e5e;
+		color: $primary-color;
+	}
+
+	65% {
+		background-color: #5e88ea;
+		color: $primary-color;
+	}
+	100% {
+		background-color: $primary-color;
+		color: $secondary-color;
+	}
+}

@@ -17,7 +17,7 @@ export default function TopNav({ cardId }) {
 	const [isActiveSidebar, setIsActiveSidebar] = useState(false);
 
 	useEffect(() => {
-		if (location.pathname === "/") {
+		if (location.pathname === "/app") {
 			setIsHome(true);
 		} else {
 			setIsHome(false);
@@ -62,7 +62,7 @@ export default function TopNav({ cardId }) {
 									<rect
 										width="100"
 										height="100"
-										fill="white"
+										fill="none"
 									/>
 									<path
 										d="M78.594 18.0428C88.5011 18.0428 96.5325 26.0741 96.5325 35.9813V35.9813C96.5325 45.8885 88.5011 53.9198 78.5939 53.9198L66.4319 53.9198L66.4319 18.0428L78.594 18.0428Z"
@@ -91,17 +91,16 @@ export default function TopNav({ cardId }) {
 				</>
 			) : (
 				// GO BACK BTN
-				<Link to={"/"}>
-					<div className={`${styles.BackBtn}`}>
-						<Button
-							variant="primary"
-							type="squareLarge"
-							onClick={handleBackButtonClick}
-						>
-							<IoArrowBackOutline className="iconSize" />
-						</Button>
-					</div>
-				</Link>
+
+				<div className={`${styles.BackBtn}`}>
+					<Button
+						variant="primary"
+						type="squareLarge"
+						onClick={handleBackButtonClick}
+					>
+						<IoArrowBackOutline className="iconSize" />
+					</Button>
+				</div>
 			)}
 
 			<div className={`flex`}>

@@ -7,6 +7,8 @@ import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { autoResizeTextarea } from "../../utility/utility";
 import Button from "../Buttons/Button";
 import ButtonWrapper from "../Buttons/ButtonWrapper";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 export default function AddTask({ onCancel, locationId }) {
 	const appContextData = useContext(AppContext);
@@ -36,9 +38,17 @@ export default function AddTask({ onCancel, locationId }) {
 		textareaRef.addEventListener("keydown", handleNewLine);
 	}, []);
 
+	function notify() {
+		toast.info("Please write more than 5 characters", {
+			className: "custom-toast-info",
+			progressClassName: "custom-toast-info-progress-bar",
+			iconClassName: "custom-toast-info .Toastify__toast-icon",
+		});
+	}
+
 	function handleAddTaskClick() {
 		if (taskInput.trim().length < 5) {
-			alert("Please write more than 5 characters");
+			notify();
 		} else {
 			appContextData.handleAddTaskBtn(value.id, taskInput);
 			onCancel();
@@ -94,6 +104,19 @@ export default function AddTask({ onCancel, locationId }) {
 					/>
 				</ButtonWrapper>
 			</div>
+			<ToastContainer
+				position="top-center"
+				autoClose={5050}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+				transition:Bounce
+			/>
 		</section>
 	);
 }

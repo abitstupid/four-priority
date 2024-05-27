@@ -71,121 +71,131 @@ function Task({ taskArr, cardId, showButtons = false }) {
 					{taskArr.map((task) => {
 						return (
 							<Fragment key={task.id}>
-								<div className={`${styles.task} flex`}>
-									{editingTaskId !== task.id && (
-										<div
-											className={`${styles.checkboxWrapper}`}
-										>
-											<input
-												className={`${styles.taskCheckbox}`}
-												type="checkbox"
-												checked={task.completed}
-												onChange={() =>
-													handleCheckboxChange(
-														cardId,
-														task.id,
-														task.completed
-													)
-												}
-											/>
-											<label
-												className={`${styles.label}`}
+								<div
+									className={`${styles.taskWrapper} flex column`}
+								>
+									<div className={`${styles.task} flex`}>
+										{editingTaskId !== task.id && (
+											<div
+												className={`${styles.checkboxWrapper}`}
 											>
-												<svg
-													width="20"
-													height="20"
-													viewBox="0 0 100 100"
-												>
-													<rect
-														xmlns="http://www.w3.org/2000/svg"
-														x="3"
-														y="3"
-														width="90"
-														height="90"
-														rx="20"
-														ry="20"
-														fill="none"
-														stroke="#1E1E1E"
-														strokeWidth="10"
-													/>
-													<g transform="translate(0,-952.36222)">
-														<path
-															d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4"
-															stroke="black"
-															strokeWidth="6"
-															fill="none"
-															className={`${styles.path1}`}
-														></path>
-													</g>
-												</svg>
-											</label>
-										</div>
-									)}
-
-									{editingTaskId === task.id ? (
-										<article
-											className={`${styles.taskEditingWrapper}`}
-										>
-											<input
-												className={`${styles.editTaskInput} marginBottomSmall`}
-												type="text"
-												value={newTaskText}
-												onChange={(e) =>
-													setNewTaskText(
-														e.target.value
-													)
-												}
-											/>
-
-											<ButtonWrapper>
-												<Button
-													type="rect"
-													variant="secondary"
-													size={50}
-													onClick={() =>
-														handleSaveTask(task.id)
+												<input
+													className={`${styles.taskCheckbox}`}
+													type="checkbox"
+													checked={task.completed}
+													onChange={() =>
+														handleCheckboxChange(
+															cardId,
+															task.id,
+															task.completed
+														)
 													}
-													text={"Update"}
+												/>
+												<label
+													className={`${styles.label}`}
+												>
+													<svg
+														width="20"
+														height="20"
+														viewBox="0 0 100 100"
+													>
+														<rect
+															xmlns="http://www.w3.org/2000/svg"
+															x="3"
+															y="3"
+															width="90"
+															height="90"
+															rx="20"
+															ry="20"
+															fill="none"
+															stroke="#1E1E1E"
+															strokeWidth="10"
+														/>
+														<g transform="translate(0,-952.36222)">
+															<path
+																d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4"
+																stroke="black"
+																strokeWidth="6"
+																fill="none"
+																className={`${styles.path1}`}
+															></path>
+														</g>
+													</svg>
+												</label>
+											</div>
+										)}
+
+										{editingTaskId === task.id ? (
+											<article
+												className={`${styles.taskEditingWrapper}`}
+											>
+												<input
+													className={`${styles.editTaskInput} marginBottomSmall`}
+													type="text"
+													value={newTaskText}
+													onChange={(e) =>
+														setNewTaskText(
+															e.target.value
+														)
+													}
 												/>
 
-												<Button
-													type="rect"
-													variant="primary"
-													size={50}
-													onClick={handleCancelEdit}
-													text={"Cancel"}
+												<ButtonWrapper>
+													<Button
+														type="rect"
+														variant="secondary"
+														size={50}
+														onClick={() =>
+															handleSaveTask(
+																task.id
+															)
+														}
+														text={"Update"}
+													/>
+
+													<Button
+														type="rect"
+														variant="primary"
+														size={50}
+														onClick={
+															handleCancelEdit
+														}
+														text={"Cancel"}
+													/>
+												</ButtonWrapper>
+											</article>
+										) : (
+											<li
+												className={`${styles.taskListItem}`}
+											>
+												{task.taskName}
+											</li>
+										)}
+									</div>
+
+									{editingTaskId === null &&
+										((pathName !== "/app" &&
+											pathName !== "/how") ||
+											showButtons) && (
+											<div
+												className={`${styles.changesBtnWrapper} flex`}
+											>
+												<DeleteBtn
+													onClick={() =>
+														appContextData.handleTaskDeleteBtn(
+															cardId,
+															task.id
+														)
+													}
 												/>
-											</ButtonWrapper>
-										</article>
-									) : (
-										<li
-											className={`${styles.taskListItem}`}
-										>
-											{task.taskName}
-										</li>
-									)}
+												<EditBtn
+													onClick={() =>
+														handleEditTaskBtn(task)
+													}
+												/>
+											</div>
+										)}
 								</div>
-
-								{editingTaskId === null &&
-									(pathName !== "/" || showButtons) && (
-										<div
-											className={`${styles.changesBtnWrapper} flex`}
-										>
-											<DeleteBtn
-												onClick={() =>
-													appContextData.handleTaskDeleteBtn(
-														cardId,
-														task.id
-													)
-												}
-											/>
-											<EditBtn
-												onClick={() =>
-													handleEditTaskBtn(task)
-												}
-											/>
-										</div>
-									)}
 							</Fragment>
 						);
 					})}

@@ -10,18 +10,18 @@ import Task from "../Task/Task";
 export default function PriorityCardLink({ cardsData }) {
 	const [cardsDataState, setCardsDataState] = useState(cardsData);
 	const [viewedCardId, setViewedCardId] = useState(false);
-	const cardContainerRef = useRef(null);
+	const cardContainerRefs = useRef([]);
 
 	useEffect(() => {
 		setCardsDataState(cardsData);
 	}, [cardsData]);
 
-	const handleCardClick = (e) => {
-		if (cardContainerRef.current) {
+	const handleCardClick = (e, cardId) => {
+		const currentRef = cardContainerRefs.current[cardId];
+
+		if (currentRef) {
 			const hasCheckbox =
-				cardContainerRef.current.querySelector(
-					`input[type="checkbox"]`
-				) !== null;
+				currentRef.querySelector(`input[type="checkbox"]`) !== null;
 			hasCheckbox && e.stopPropagation();
 		}
 	};
@@ -39,8 +39,10 @@ export default function PriorityCardLink({ cardsData }) {
 							>
 								<div
 									className={`${styles.cardContainer}`}
-									ref={cardContainerRef}
-									onClick={handleCardClick}
+									ref={(e) =>
+										(cardContainerRefs.current[card.id] = e)
+									}
+									onClick={(e) => handleCardClick(e, card.id)}
 									onMouseEnter={() => {
 										setViewedCardId(card.id);
 									}}

@@ -123,5 +123,45 @@
 	},
 	"assets": {
 		"appLogo": "./assets/images/four-priority-logo.svg"
+	},
+	"website": {
+		"nav": [
+			{
+				"id": 0,
+				"big": "What",
+				"small": "is Four Priority",
+				"route": "/what"
+			},
+			{
+				"id": 1,
+				"big": "Why",
+				"small": "use Four Priority",
+				"route": "/why"
+			},
+			{
+				"id": 2,
+				"big": "How",
+				"small": "to use Four Priority",
+				"route": "/how"
+			},
+			{
+				"id": 3,
+				"big": "Who",
+				"small": "made Four Priority",
+				"route": "/who"
+			}
+		],
+		"whatPage": [
+			{ "id": 0, "text": "4P is a HYBRID to do app" },
+			{ "id": 0, "text": "Desinged to increase your productivity" },
+			{
+				"id": 0,
+				"text": "It lets you organize to-dos according to your priorities"
+			},
+			{
+				"id": 0,
+				"text": "Helps you reduce the complexity in your day-to-day tasks"
+			}
+		]
 	}
 }

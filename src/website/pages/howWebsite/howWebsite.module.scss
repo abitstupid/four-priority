@@ -1,0 +1,68 @@
+@import "./../../../global.scss";
+
+.howWrapper {
+	height: calc(100vh - 48px);
+	height: calc(100svh - 48px);
+	height: calc(100dvh - 48px);
+	width: 100%;
+
+	.howContent {
+		flex-grow: 1;
+		width: 100%;
+		height: calc(80% - 4rem);
+
+		.howImgWrapper {
+			flex-basis: 30%;
+			width: 30%;
+
+			height: 100%;
+
+			.howImg {
+				height: 70%;
+				width: 70%;
+				object-fit: contain;
+			}
+		}
+
+		.howTextWrapper {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			height: 100%;
+
+			.priorityCardHowWrapper {
+				width: 50%;
+				height: 50%;
+				padding: 1rem;
+
+				.priorityCardHow {
+					width: 100%;
+					height: 100%;
+
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					padding: 1rem;
+					border-radius: 2rem;
+					border: 2px solid $primary-color;
+				}
+
+				.priorityCardHow1 {
+					background-color: #ffa2a2;
+				}
+
+				.priorityCardHow2 {
+					background-color: #fcfeab;
+				}
+
+				.priorityCardHow3 {
+					background-color: #c3ffb4;
+				}
+				.priorityCardHow4 {
+					background-color: #dcd8d8;
+				}
+			}
+		}
+	}
+}

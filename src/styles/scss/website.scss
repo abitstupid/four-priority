@@ -1,0 +1,14 @@
+@import "./../../global.scss";
+
+.websitePageHeading {
+	width: 100%;
+	text-align: left;
+	font-size: 4.2rem;
+
+	justify-content: flex-start;
+
+	.websitePageHeadingSpan {
+		font-size: 1.25rem;
+		color: $website-grey;
+	}
+}

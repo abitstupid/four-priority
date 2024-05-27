@@ -1,0 +1,81 @@
+@keyframes initialText {
+	0% {
+		position: relative;
+		bottom: -500rem;
+	}
+
+	100% {
+		position: relative;
+		bottom: -500rem;
+	}
+}
+
+@keyframes introText {
+	0% {
+		position: relative;
+		top: -90px;
+		opacity: 0;
+	}
+
+	100% {
+		position: relative;
+		top: 0;
+		opacity: 1;
+	}
+}
+
+@keyframes introHero {
+	0% {
+		position: relative;
+		top: -90px;
+		opacity: 0;
+		transform: scale(2);
+	}
+	25% {
+		position: relative;
+		top: 0;
+		opacity: 1;
+		transform: scale(1);
+	}
+	75% {
+		position: relative;
+		top: -45px;
+		opacity: 1;
+	}
+
+	100% {
+		position: relative;
+		top: 0;
+		opacity: 1;
+	}
+}
+
+.heroWrapper {
+	height: calc(100vh - 48px);
+	height: calc(100svh - 48px);
+	height: calc(100dvh - 48px);
+
+	gap: 6rem;
+
+	.hero {
+		.heroImageWrapper {
+			width: 100%;
+			height: 60vh;
+
+			.heroImage {
+				height: 100%;
+				width: 100%;
+				object-fit: contain;
+				animation: introHero 2500ms ease-in-out;
+			}
+		}
+
+		.heroText {
+			text-align: center;
+			font-size: 48px;
+			letter-spacing: 2px;
+			animation: initialText 1000ms ease-in-out,
+				introText 1000ms 1000ms ease-in-out;
+		}
+	}
+}

@@ -1,0 +1,86 @@
+@import "./../../../global.scss";
+@import "./../../../styles/scss/website.scss";
+
+.whoWrapper {
+	width: 100%;
+	height: calc(100vh - 48px);
+	height: calc(100svh - 48px);
+	height: calc(100dvh - 48px);
+
+	.whoContent {
+		width: 100%;
+		height: calc(80% - 4rem);
+		flex-grow: 1;
+
+		.whoImgWrapper {
+			width: 40%;
+			height: 100%;
+			position: relative;
+			flex-basis: 60%;
+			z-index: 996;
+
+			.whoImg {
+				width: 100%;
+				height: 90%;
+				object-fit: contain;
+				z-index: 996;
+			}
+
+			.giftWrapper {
+				position: absolute;
+				top: 55%;
+				right: 25%;
+				z-index: 996;
+				transform: translate(0, -50%);
+
+				display: none;
+				transition: all 0.3s ease;
+
+				.giftImg {
+					position: absolute;
+					left: 50%;
+					top: 55%;
+					transform: translate(-50%, -50%);
+					width: 110px;
+					height: 110px;
+				}
+			}
+
+			.showGiftWrapper {
+				display: block;
+			}
+
+			.thisGuyArrow {
+				position: absolute;
+				top: 10%;
+				right: 2%;
+				width: 30%;
+				z-index: 996;
+			}
+		}
+
+		.whoTextWrapper {
+			width: 60%;
+			height: 80%;
+			flex-grow: 1;
+
+			align-items: flex-start;
+			justify-content: flex-start;
+			gap: 2rem;
+
+			.whoAuthorTitle {
+				font-size: 1.15rem;
+			}
+
+			.whoBtnWrapper {
+				gap: 1rem;
+				align-items: flex-start;
+				font-size: 1.15rem;
+			}
+
+			.socialWrapper {
+				gap: 1rem;
+			}
+		}
+	}
+}

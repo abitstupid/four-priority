@@ -1,0 +1,52 @@
+@import "./../../../global.scss";
+
+.whyWrapper {
+	width: 100%;
+	height: calc(100vh - 48px);
+	height: calc(100svh - 48px);
+	height: calc(100dvh - 48px);
+
+	.whyContent {
+		flex-grow: 1;
+		width: 100%;
+		height: calc(80% - 4rem);
+
+		.topTextWrapper {
+			position: relative;
+			width: 100%;
+			flex-basis: 25%;
+			flex-shrink: 1;
+
+			.simpleSvg {
+				position: absolute;
+				z-index: inherit;
+				height: 90%;
+				width: 90%;
+			}
+			.topText {
+				font-size: 1.5rem;
+			}
+		}
+
+		.whyTextWrapper {
+			height: 100%;
+			flex-grow: 1;
+
+			.whyImgWrapper {
+				flex-basis: 60%;
+				height: 100%;
+
+				.whyImg {
+					height: 100%;
+					width: 100%;
+					object-fit: contain;
+				}
+			}
+
+			.whyText {
+				flex-basis: 40%;
+				font-size: 1.15rem;
+			}
+		}
+	}
+}

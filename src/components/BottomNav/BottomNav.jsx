@@ -16,16 +16,16 @@ export default function BottomNav() {
 	return (
 		<div className={`${styles.bottomNavWrpper}`}>
 			<Link
-				to={"/"}
-				onClick={() => handleNavBtnClick("/")}
+				to={"/app"}
+				onClick={() => handleNavBtnClick("/app")}
 			>
 				<Button
-					variant={activeBtn === "/" ? "secondary" : "primary"}
+					variant={activeBtn === "/app" ? "secondary" : "primary"}
 					type="squareLarge"
 					onClick={handleNavBtnClick}
 				>
 					<GoHomeFill
-						fill={activeBtn === "/" ? "#ffffff" : "#1e1e1e"}
+						fill={activeBtn === "/app" ? "#ffffff" : "#1e1e1e"}
 						className="iconSizeSmall"
 					/>
 				</Button>

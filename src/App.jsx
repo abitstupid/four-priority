@@ -8,15 +8,18 @@ import Home from "./pages/home/home";
 import Features from "./pages/features/features";
 import AppContext from "./AppContext";
 import PriorityPage from "./pages/priorityPage/priorityPage";
-import Loading from "./components/Loading/Loading";
 import NotFound from "./pages/notFound/notFound";
+import HomeWebsite from "./website/pages/homeWebsite/homeWebsite";
+import WhatWebsite from "./website/pages/whatWebsite/whatWebsite";
+import WhyWebsite from "./website/pages/whyWebsite/whyWebsite";
+import HowWebsite from "./website/pages/howWebsite/howWebsite";
+import WhoWebsite from "./website/pages/whoWebsite/whoWebsite";
 
 const DATA = data;
 const DATA_VERSION = DATA.version;
-// ALL TASKS MANAGED BY STATE cardData , everything else is passed through DATA.*
+// ALL TASKS ARE MANAGED BY STATE cardData , everything else is passed through DATA.anything
 
 function App() {
-	const [isLoading, setIsLoading] = useState(true);
 	const [cardsData, setCardsData] = useState(() => {
 		const savedData = localStorage.getItem("preSavedData");
 		const savedVersion = localStorage.getItem("dataVersion");
@@ -37,28 +40,6 @@ function App() {
 	useEffect(() => {
 		localStorage.setItem("preSavedData", JSON.stringify(cardsData));
 	}, [cardsData]);
-
-	// supplying cards data to AppContext
-	const [cardsDataContext, setCardsDataContext] = useState(cardsData);
-
-	// and passing again as the cardsData is updated
-	useEffect(() => {
-		setCardsDataContext(cardsData);
-	}, [cardsData]);
-
-	// LOADING
-	useEffect(() => {
-		const firstVisit = localStorage.getItem("firstVisit");
-
-		if (!firstVisit) {
-			setTimeout(() => {
-				setIsLoading(false);
-				localStorage.setItem("firstVisit", "true");
-			}, 3500);
-		} else {
-			setIsLoading(false);
-		}
-	}, []);
 
 	function handleAddTaskBtn(optionId, taskContent) {
 		const updatedCardsData = cardsData.map((card) => {
@@ -139,7 +120,7 @@ function App() {
 		<AppContext.Provider
 			value={{
 				DATA,
-				cardsDataContext,
+				cardsData,
 				handleTaskCheckbox,
 				handleTaskDeleteBtn,
 				handleAddTaskBtn,
@@ -147,45 +128,57 @@ function App() {
 			}}
 		>
 			<div className="App">
-				{isLoading ? (
-					<Loading />
-				) : (
-					<Routes>
-						<Route
-							path="/"
-							element={
-								<Home
-									cardsData={cardsData}
-									appTitle={DATA.APP_TITLE}
-								/>
-							}
-						/>
+				<Routes>
+					<Route
+						index
+						element={<HomeWebsite />}
+					/>
 
-						<Route
-							index
-							element={
-								<Home
-									cardsData={cardsData}
-									appTitle={DATA.APP_TITLE}
-								/>
-							}
-						/>
+					<Route
+						path="/"
+						element={<HomeWebsite />}
+					/>
 
-						<Route
-							path="/features"
-							element={<Features />}
-						/>
+					<Route
+						path="/app"
+						element={
+							<Home
+								cardsData={cardsData}
+								appTitle={DATA.APP_TITLE}
+							/>
+						}
+					/>
 
-						<Route
-							path="/priorityPage"
-							element={<PriorityPage />}
-						/>
-						<Route
-							path="*"
-							element={<NotFound />}
-						/>
-					</Routes>
-				)}
+					<Route
+						path="/features"
+						element={<Features />}
+					/>
+
+					<Route
+						path="/priorityPage"
+						element={<PriorityPage />}
+					/>
+					<Route
+						path="/what"
+						element={<WhatWebsite />}
+					/>
+					<Route
+						path="/why"
+						element={<WhyWebsite />}
+					/>
+					<Route
+						path="/how"
+						element={<HowWebsite />}
+					/>
+					<Route
+						path="/who"
+						element={<WhoWebsite />}
+					/>
+					<Route
+						path="*"
+						element={<NotFound />}
+					/>
+				</Routes>
 			</div>
 		</AppContext.Provider>
 	);

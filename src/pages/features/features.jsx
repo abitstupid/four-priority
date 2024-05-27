@@ -14,33 +14,39 @@ export default function Features() {
 	const [breakMinutes, setBreakMinutes] = useState(5);
 	const [showExitPrompt, setShowExitPrompt] = useExitPrompt(false);
 
+	const FEATURE_CARD_ID = 98;
+
 	return (
-		<div className={`${styles.featuresWrapper}`}>
-			<TopNav />
+		<>
+			<TopNav cardId={FEATURE_CARD_ID} />
 			<BottomNav />
 
-			<div className={`${styles.featuresItemWrapper}`}>
-				<SettingsContext.Provider
-					value={{
-						showSettings,
-						setShowSettings,
-						workMinutes: workMinutes,
-						breakMinutes: breakMinutes,
-						setWorkMinutes,
-						setBreakMinutes,
-						showExitPrompt,
-						setShowExitPrompt,
-					}}
-				>
-					{showSettings ? <Settings /> : <Pomodoro />}
-				</SettingsContext.Provider>
-				<p
-					className={`${styles.pomodoroHeading} fontPrimaryMedium`}
-					style={{ display: `${showSettings ? "none" : "block"}` }}
-				>
-					Pomodoro
-				</p>
+			<div className={`${styles.featuresWrapper}`}>
+				<div className={`${styles.featuresItemWrapper}`}>
+					<SettingsContext.Provider
+						value={{
+							showSettings,
+							setShowSettings,
+							workMinutes: workMinutes,
+							breakMinutes: breakMinutes,
+							setWorkMinutes,
+							setBreakMinutes,
+							showExitPrompt,
+							setShowExitPrompt,
+						}}
+					>
+						{showSettings ? <Settings /> : <Pomodoro />}
+					</SettingsContext.Provider>
+					<p
+						className={`${styles.pomodoroHeading} fontPrimaryMedium`}
+						style={{
+							display: `${showSettings ? "none" : "block"}`,
+						}}
+					>
+						Pomodoro
+					</p>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
