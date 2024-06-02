@@ -23,7 +23,7 @@ div.priorityCard::-webkit-scrollbar-thumb {
 
 	.priorityCard {
 		background-color: #fff;
-		border: 2px solid $primary-color;
+		// border: 2px solid $primary-color;
 		border-radius: 2rem;
 		padding: 1rem;
 		padding-bottom: 1.5rem;
@@ -35,23 +35,39 @@ div.priorityCard::-webkit-scrollbar-thumb {
 		font-size: 1.125rem;
 	}
 
-	.cardHeading,
-	.cardEditBtn {
+	.cardBottomRibbon {
 		position: absolute;
+		bottom: 0.5rem;
+		left: 50%;
+		transform: translate(-50%, 0);
+
+		width: 95%;
+		justify-content: space-between;
+
+		background-color: $primary-color;
+
+		padding: 0.5rem 0.75rem;
+		border-radius: 100px;
+
+		box-shadow: 0 0 5px $primary-transparent-color;
 	}
 
 	.cardHeading {
-		bottom: 0rem;
-		left: 0;
-
-		background-color: $primary-color;
-		color: $secondary-color;
+		background-color: $secondary-color;
+		color: $primary-color;
 		padding: 0.25rem 1rem;
-		border-bottom-left-radius: 2rem;
+		border-radius: 100px;
+
+		height: 28px;
 	}
 
 	.cardEditBtn {
-		bottom: 1rem;
-		right: 1rem;
+		border-radius: 100px;
+
+		height: 28px;
+		width: 48px;
 	}
+}
+
+@media screen and (min-height: 50rem) {
 }

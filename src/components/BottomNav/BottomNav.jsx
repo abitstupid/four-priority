@@ -20,12 +20,12 @@ export default function BottomNav() {
 				onClick={() => handleNavBtnClick("/app")}
 			>
 				<Button
-					variant={activeBtn === "/app" ? "secondary" : "primary"}
+					variant={activeBtn === "/app" ? "primary" : "secondary"}
 					type="squareLarge"
 					onClick={handleNavBtnClick}
 				>
 					<GoHomeFill
-						fill={activeBtn === "/app" ? "#ffffff" : "#1e1e1e"}
+						fill={activeBtn === "/app" ? "#1e1e1e" : "#ffffff"}
 						className="iconSizeSmall"
 					/>
 				</Button>
@@ -36,13 +36,13 @@ export default function BottomNav() {
 			>
 				<Button
 					variant={
-						activeBtn === "/features" ? "secondary" : "primary"
+						activeBtn === "/features" ? "primary" : "secondary"
 					}
 					type="squareLarge"
 					onClick={handleNavBtnClick}
 				>
 					<HiMiniQueueList
-						fill={activeBtn === "/features" ? "#ffffff" : "#1e1e1e"}
+						fill={activeBtn === "/features" ? "#1e1e1e" : "#ffffff"}
 						className="iconSizeSmall"
 					/>
 				</Button>

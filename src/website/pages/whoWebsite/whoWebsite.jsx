@@ -22,14 +22,16 @@ export default function WhoWebsite() {
 
 	return (
 		<>
-			<NavbarWebsite />
 			<div className={`${styles.whoWrapper} flex column`}>
-				<h1 className={`websitePageHeading primaryFontBold`}>
-					Who{" "}
-					<span className={`websitePageHeadingSpan primaryFont`}>
-						made Four Priority ?
-					</span>
-				</h1>
+				<header className={`${styles.heroHeader} heroHeader`}>
+					<h1 className={`websitePageHeading primaryFontBold`}>
+						Who{" "}
+						<span className={`websitePageHeadingSpan primaryFont`}>
+							made Four Priority ?
+						</span>
+					</h1>
+					<NavbarWebsite />
+				</header>
 				<section className={`${styles.whoContent} flex`}>
 					<div
 						className={`${styles.whoImgWrapper} center`}

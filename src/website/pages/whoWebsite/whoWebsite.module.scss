@@ -3,9 +3,14 @@
 
 .whoWrapper {
 	width: 100%;
+	max-width: $max-width-xl;
+
 	height: calc(100vh - 48px);
 	height: calc(100svh - 48px);
 	height: calc(100dvh - 48px);
+
+	margin-left: auto;
+	margin-right: auto;
 
 	.whoContent {
 		width: 100%;
@@ -80,6 +85,30 @@
 
 			.socialWrapper {
 				gap: 1rem;
+			}
+		}
+	}
+}
+
+@include xs {
+	.whoWrapper {
+		.whoContent {
+			.whoImgWrapper {
+				.thisGuyArrow {
+					top: 10%;
+					right: -20%;
+					width: 50%;
+					z-index: 996;
+				}
+			}
+
+			.whoTextWrapper {
+				justify-content: space-between;
+				align-items: center;
+
+				.whoBtnWrapper {
+					font-size: 1rem;
+				}
 			}
 		}
 	}

@@ -2,9 +2,13 @@
 
 .whyWrapper {
 	width: 100%;
+	max-width: $max-width-xl;
 	height: calc(100vh - 48px);
 	height: calc(100svh - 48px);
 	height: calc(100dvh - 48px);
+
+	margin-right: auto;
+	margin-left: auto;
 
 	.whyContent {
 		flex-grow: 1;
@@ -20,6 +24,7 @@
 			.simpleSvg {
 				position: absolute;
 				z-index: inherit;
+
 				height: 90%;
 				width: 90%;
 			}
@@ -46,6 +51,46 @@
 			.whyText {
 				flex-basis: 40%;
 				font-size: 1.15rem;
+			}
+		}
+	}
+}
+
+@include xs {
+	.whyWrapper {
+		gap: 1rem;
+		.whyContent {
+			gap: 1rem;
+
+			.topTextWrapper {
+				flex-basis: 20%;
+				overflow: hidden;
+				.simpleSvg {
+					height: 120%;
+					width: 120%;
+					opacity: 0.5;
+					transform: rotate(5deg);
+				}
+			}
+
+			.whyTextWrapper {
+				flex-grow: 1;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+
+				.whyImgWrapper {
+					.whyImg {
+						height: 90%;
+						width: 90%;
+						object-fit: contain;
+					}
+				}
+
+				.whyText {
+					flex-basis: auto !important;
+					text-align: center;
+				}
 			}
 		}
 	}

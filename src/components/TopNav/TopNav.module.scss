@@ -8,13 +8,13 @@
 
 	width: 100%;
 	max-width: 800px;
+	height: $top-nav-height;
+
 	margin-left: auto;
 	margin-right: auto;
 	margin-block: auto;
-
-	height: $top-nav-height;
-	padding: 0.5rem;
 	margin-bottom: 0.5rem;
+	padding: 0.5rem;
 
 	.appLogoWrapper {
 		justify-content: space-between;

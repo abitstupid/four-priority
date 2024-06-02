@@ -7,14 +7,16 @@ export default function WhyWebsite() {
 
 	return (
 		<>
-			<NavbarWebsite />
 			<div className={`${styles.whyWrapper} flex column`}>
-				<h1 className={`websitePageHeading primaryFontBold`}>
-					Why{" "}
-					<span className={`websitePageHeadingSpan primaryFont`}>
-						to use Four Priority ?
-					</span>
-				</h1>
+				<header className={`${styles.heroHeader} heroHeader`}>
+					<h1 className={`websitePageHeading primaryFontBold`}>
+						Why{" "}
+						<span className={`websitePageHeadingSpan primaryFont`}>
+							to use Four Priority ?
+						</span>
+					</h1>
+					<NavbarWebsite />
+				</header>
 				<section className={`${styles.whyContent} flex column`}>
 					<div className={`${styles.topTextWrapper} center`}>
 						<p className={`${styles.topText} primaryFont `}>
@@ -42,7 +44,7 @@ export default function WhyWebsite() {
 							<span className="styleBackground">complexity</span>{" "}
 							of day-to-day tasks.
 						</p>
-						<div className={`${styles.whyImgWrapper}`}>
+						<div className={`${styles.whyImgWrapper} flex`}>
 							<img
 								className={`${styles.whyImg}`}
 								src={phoneLandscape}

@@ -4,11 +4,43 @@
 	width: 100%;
 	text-align: left;
 	font-size: 4.2rem;
-
+	display: flex;
 	justify-content: flex-start;
+	align-items: baseline;
+	column-gap: 0.25rem;
 
 	.websitePageHeadingSpan {
 		font-size: 1.25rem;
 		color: $website-grey;
+	}
+}
+
+@include xs {
+	.websitePageHeading {
+		flex-direction: column;
+	}
+}
+
+.heroHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+
+	position: relative;
+
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $max-width-xl;
+}
+
+.heroHeader.navOnly {
+	justify-content: flex-end;
+}
+
+@mixin maxHeight {
+	@media screen and (max-height: 400px) {
+		@content;
 	}
 }

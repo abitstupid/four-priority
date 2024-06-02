@@ -1,17 +1,10 @@
 @import "./../../../global.scss";
 
 .navbarWrapper {
-	position: fixed;
-	z-index: 999;
-	top: 1rem;
-	right: 1rem;
+	position: relative;
+	z-index: 997;
 
 	.navButton {
-		position: fixed;
-		top: inherit;
-		right: inherit;
-		z-index: 999;
-
 		height: 5rem;
 		width: 5rem;
 
@@ -19,6 +12,9 @@
 
 		background-color: $primary-color;
 		cursor: pointer;
+
+		position: relative;
+		z-index: 999;
 	}
 
 	.navButton::before,
@@ -70,18 +66,16 @@
 		width: 100%;
 		background-color: $primary-transparent-color;
 
-		align-items: flex-start;
-		padding-top: 3rem;
-
 		.navbar {
 			gap: 2rem;
 
 			justify-content: space-between;
 
-			height: calc(90vh - 3rem);
-			height: calc(90svh - 3rem);
-			height: calc(90dvh - 3rem);
+			height: calc(70vh - 3rem);
+			height: calc(70svh - 3rem);
+			height: calc(70dvh - 3rem);
 			width: 90%;
+			max-width: 1200px;
 
 			.appDisplay {
 				flex-shrink: 0;
@@ -178,6 +172,83 @@
 								line-height: 3rem;
 							}
 						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include lg {
+	.navbarWrapper {
+		.navbarContentWrapper {
+			justify-content: center;
+			padding-right: 0;
+
+			.navbar {
+				height: calc(90vh - 3rem);
+				height: calc(90svh - 3rem);
+				height: calc(90dvh - 3rem);
+				width: 90%;
+			}
+		}
+	}
+}
+
+@include md {
+	.navbarWrapper {
+		.navbarContentWrapper {
+			justify-content: center;
+			padding-right: 0;
+
+			.appDisplay {
+				display: none !important;
+			}
+
+			.navbar {
+				height: calc(90vh - 3rem);
+				height: calc(90svh - 3rem);
+				height: calc(90dvh - 3rem);
+				width: 90%;
+			}
+		}
+	}
+
+	.bigText {
+		font-size: 3rem;
+	}
+}
+
+@include sm {
+	.navbarWrapper {
+		.navbarContentWrapper {
+			justify-content: center;
+			padding-right: 0;
+
+			.navbar {
+				height: calc(95vh - 3rem);
+				height: calc(95svh - 3rem);
+				height: calc(95dvh - 3rem);
+				width: 90%;
+
+				.appDisplay {
+					display: none !important;
+				}
+
+				.navLinks {
+					flex-direction: column !important;
+					width: 100%;
+
+					.homeBtn {
+						flex-direction: row;
+						gap: 0.25rem;
+
+						padding: 0.5rem;
+					}
+
+					.navListWrapper {
+						width: 100%;
+						padding: 1rem;
 					}
 				}
 			}

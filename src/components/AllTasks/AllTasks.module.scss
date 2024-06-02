@@ -27,7 +27,9 @@
 		max-height: 75svh;
 		overflow: auto;
 
-		padding: 1.5rem 1rem;
+		padding-bottom: 3rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
 
 		font-family: inherit;
 
@@ -36,9 +38,21 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 
-		.allTaskHeading {
-			font-size: 1.15rem;
-			text-align: center;
+		.allTaskHeader {
+			position: sticky;
+			top: 0;
+			z-index: 996;
+			justify-content: space-between;
+
+			background-color: $secondary-color;
+			margin-left: -1rem;
+			margin-right: -1rem;
+			padding: 1.5rem 1rem;
+
+			.allTaskHeading {
+				font-size: 1.15rem;
+				text-align: center;
+			}
 		}
 
 		.tasksWrapper {
@@ -46,11 +60,5 @@
 				font-size: 1rem;
 			}
 		}
-	}
-
-	.allTaskCloseBtn {
-		position: fixed;
-		top: 1rem;
-		right: 1rem;
 	}
 }

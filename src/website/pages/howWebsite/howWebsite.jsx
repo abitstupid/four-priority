@@ -40,14 +40,17 @@ export default function HowWebsite() {
 	};
 	return (
 		<>
-			<NavbarWebsite />
-			<div className={`${styles.howWrapper} flex column`}>
-				<h1 className={`websitePageHeading primaryFontBold`}>
-					How{" "}
-					<span className={`websitePageHeadingSpan primaryFont`}>
-						to use Four Priority ?
-					</span>
-				</h1>
+			<main className={`${styles.howWrapper} flex column`}>
+				<header className={`${styles.heroHeader} heroHeader`}>
+					<h1 className={`websitePageHeading primaryFontBold`}>
+						How{" "}
+						<span className={`websitePageHeadingSpan primaryFont`}>
+							to use Four Priority ?
+						</span>
+					</h1>
+					<NavbarWebsite />
+				</header>
+
 				<section className={`${styles.howContent} flex`}>
 					<div className={`${styles.howImgWrapper} flex column`}>
 						<img
@@ -111,7 +114,7 @@ export default function HowWebsite() {
 						</div>
 					</div>
 				</section>
-			</div>
+			</main>
 		</>
 	);
 }

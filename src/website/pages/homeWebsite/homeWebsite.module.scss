@@ -1,3 +1,6 @@
+@import "./../../../global.scss";
+@import "./../../../styles/scss/website.scss";
+
 @keyframes initialText {
 	0% {
 		position: relative;
@@ -54,10 +57,26 @@
 	height: calc(100vh - 48px);
 	height: calc(100svh - 48px);
 	height: calc(100dvh - 48px);
+	max-width: $max-width-xl;
+
+	margin-right: auto;
+	margin-left: auto;
 
 	gap: 6rem;
 
+	position: relative;
+
+	.heroHeader {
+		width: 100%;
+		max-width: $max-width-xl;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
 	.hero {
+		height: 100%;
+
 		.heroImageWrapper {
 			width: 100%;
 			height: 60vh;
@@ -72,10 +91,41 @@
 
 		.heroText {
 			text-align: center;
-			font-size: 48px;
+			font-size: 3rem;
 			letter-spacing: 2px;
 			animation: initialText 1000ms ease-in-out,
 				introText 1000ms 1000ms ease-in-out;
+		}
+	}
+}
+
+@include maxHeight {
+	.heroWrapper {
+		height: $min-height;
+		min-height: $min-height;
+	}
+}
+
+@include md {
+	.heroWrapper {
+		gap: 4rem;
+
+		.hero {
+			.heroText {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
+@include sm {
+	.heroWrapper {
+		gap: 2rem;
+
+		.hero {
+			.heroText {
+				font-size: 1.5rem;
+			}
 		}
 	}
 }

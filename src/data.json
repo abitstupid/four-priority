@@ -1,6 +1,6 @@
 {
 	"appTitle": "four-priority",
-	"version": 1.1,
+	"version": 1.2,
 	"PRIORITY_CARDS": [
 		{
 			"id": 0,
@@ -16,10 +16,13 @@
 				}
 			],
 			"styles": {
-				"height": "30vh",
-				"backgroundColor": "#FFA2A2",
+				"height": "17rem",
+				"heightVh": "30vh",
+				"backgroundColor": "#FCBCBD",
 				"btnVariant": "primary",
-				"iconFill": "#1e1e1e"
+				"ribbonBg": "#1e1e1e",
+				"buttonBg": "#ffffff",
+				"fontColor": "#1e1e1e"
 			}
 		},
 		{
@@ -36,10 +39,13 @@
 				}
 			],
 			"styles": {
-				"height": "25vh",
-				"backgroundColor": "#FCFEAB",
+				"height": "13rem",
+				"heightVh": "20vh",
+				"backgroundColor": "#64C8F1",
 				"btnVariant": "primary",
-				"iconFill": "#1e1e1e"
+				"ribbonBg": "#ffffff",
+				"buttonBg": "#1e1e1e",
+				"fontColor": "#ffffff"
 			}
 		},
 		{
@@ -56,10 +62,13 @@
 				}
 			],
 			"styles": {
-				"height": "25vh",
-				"backgroundColor": "#C3FFB4",
+				"height": "13rem",
+				"heightVh": "20vh",
+				"backgroundColor": "#60c79e",
 				"btnVariant": "primary",
-				"iconFill": "#1e1e1e"
+				"ribbonBg": "#ffffff",
+				"buttonBg": "#1e1e1e",
+				"fontColor": "#ffffff"
 			}
 		},
 		{
@@ -76,10 +85,13 @@
 				}
 			],
 			"styles": {
-				"height": "20vh",
-				"backgroundColor": "#DCD8D8",
+				"height": "11rem",
+				"heightVh": "20vh",
+				"backgroundColor": "#B0AFAF",
 				"btnVariant": "primary",
-				"iconFill": "#1e1e1e"
+				"ribbonBg": "#ffffff",
+				"buttonBg": "#1e1e1e",
+				"fontColor": "#ffffff"
 			}
 		}
 	],

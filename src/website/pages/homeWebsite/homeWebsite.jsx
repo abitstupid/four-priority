@@ -35,8 +35,11 @@ export default function HomeWebsite() {
 		<Loading />
 	) : (
 		<div>
-			{showNav && <NavbarWebsite />}
 			<section className={`${styles.heroWrapper} flex column`}>
+				<header className={`${styles.heroHeader} heroHeader navOnly`}>
+					{showNav && <NavbarWebsite />}
+				</header>
+
 				<div className={`${styles.hero} flex column`}>
 					<div className={`${styles.heroImageWrapper}`}>
 						<img
@@ -45,6 +48,7 @@ export default function HomeWebsite() {
 							alt="Phone displaying the home screen of the Four Priority app with a list of tasks"
 						/>
 					</div>
+					<div className="heroNavWrapper"></div>
 					<h1 className={`${styles.heroText} primaryFontMedium`}>
 						This is not a normal To-Do app
 					</h1>

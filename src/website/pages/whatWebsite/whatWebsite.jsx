@@ -8,14 +8,16 @@ export default function WhatWebsite() {
 
 	return (
 		<>
-			<NavbarWebsite />
 			<div className={`${styles.whatWrapper} flex column `}>
-				<h1 className={` websitePageHeading primaryFontBold`}>
-					What{" "}
-					<span className={`websitePageHeadingSpan primaryFont`}>
-						is Four Priority ?
-					</span>
-				</h1>
+				<header className={`${styles.heroHeader} heroHeader`}>
+					<h1 className={` websitePageHeading primaryFontBold`}>
+						What{" "}
+						<span className={`websitePageHeadingSpan primaryFont`}>
+							is Four Priority ?
+						</span>
+					</h1>
+					<NavbarWebsite />
+				</header>
 
 				<section className={`${styles.whatContent} flex`}>
 					<div

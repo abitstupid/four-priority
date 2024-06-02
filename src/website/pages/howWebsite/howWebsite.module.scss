@@ -1,4 +1,5 @@
 @import "./../../../global.scss";
+@import "./../../../styles/scss/website.scss";
 
 .howWrapper {
 	height: calc(100vh - 48px);
@@ -6,12 +7,20 @@
 	height: calc(100dvh - 48px);
 	width: 100%;
 
+	max-width: $max-width-xl;
+	margin-right: auto;
+	margin-left: auto;
+
+	position: relative;
+
 	.howContent {
 		flex-grow: 1;
 		width: 100%;
 		height: calc(80% - 4rem);
 
 		.howImgWrapper {
+			display: block;
+
 			flex-basis: 30%;
 			width: 30%;
 
@@ -61,6 +70,61 @@
 				}
 				.priorityCardHow4 {
 					background-color: #dcd8d8;
+				}
+			}
+		}
+	}
+}
+
+@include maxHeight {
+	.howWrapper {
+		height: $min-height;
+		min-height: $min-height;
+	}
+}
+
+@include lg {
+	.howWrapper {
+		.howContent {
+			.howTextWrapper {
+				flex-direction: column;
+
+				.priorityCardHowWrapper {
+					padding: 0.5rem;
+					.priorityCardHow {
+						padding: 0.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include md {
+	.howWrapper {
+		.howContent {
+			.howImgWrapper {
+				display: none;
+			}
+		}
+	}
+}
+
+@include xs {
+	.howWrapper {
+		height: auto;
+		.howContent {
+			.howTextWrapper {
+				.priorityCardHowWrapper {
+					padding: 0.5rem;
+					width: 100%;
+
+					.priorityCardHow {
+						padding: 1rem;
+						li {
+							font-size: 1.15rem;
+						}
+					}
 				}
 			}
 		}

@@ -3,14 +3,32 @@ import PropTypes from "prop-types";
 
 import styles from "./PriorityCard.module.scss";
 import { Link } from "react-router-dom";
-import { AiOutlineFullscreen } from "react-icons/ai";
-import Button from "../Buttons/Button";
+import { FaArrowRightLong } from "react-icons/fa6";
 import Task from "../Task/Task";
 
 export default function PriorityCardLink({ cardsData }) {
 	const [cardsDataState, setCardsDataState] = useState(cardsData);
 	const [viewedCardId, setViewedCardId] = useState(false);
+	const [cardHeigthVh, setCardHeigthVh] = useState(null);
 	const cardContainerRefs = useRef([]);
+
+	useEffect(() => {
+		const updateCardHeight = () => {
+			if (window.innerHeight >= 800) {
+				setCardHeigthVh(true);
+			} else {
+				setCardHeigthVh(false);
+			}
+		};
+
+		updateCardHeight();
+
+		window.addEventListener("resize", updateCardHeight);
+
+		return () => {
+			window.removeEventListener("resize", updateCardHeight);
+		};
+	}, []);
 
 	useEffect(() => {
 		setCardsDataState(cardsData);
@@ -57,7 +75,11 @@ export default function PriorityCardLink({ cardsData }) {
 										className={`${styles.priorityCard} primaryFont`}
 										id={card?.name}
 										style={{
-											height: `${card?.styles?.height}`,
+											height: `${
+												cardHeigthVh
+													? card?.styles?.heightVh
+													: card?.styles?.height
+											}`,
 											backgroundColor: `${card?.styles?.backgroundColor}`,
 										}}
 									>
@@ -66,39 +88,52 @@ export default function PriorityCardLink({ cardsData }) {
 											cardId={card.id}
 										/>
 									</div>
-									{/* heading */}
-									<p
-										className={`${styles.cardHeading} primaryFontSemiBold`}
-									>
-										{card?.heading}
-									</p>
 
-									<span className={`${styles.cardEditBtn}`}>
-										<Button
-											variant={card?.styles?.btnVariant}
-											type="squareSmall"
+									{/* card ribbon */}
+									<div
+										className={`${styles.cardBottomRibbon} flex `}
+										style={{
+											backgroundColor: `${card?.styles?.ribbonBg}`,
+										}}
+									>
+										{/* heading */}
+										<p
+											className={`${styles.cardHeading} primaryFontSemiBold`}
+											style={{
+												backgroundColor: `${card?.styles?.buttonBg}`,
+												color: `${card?.styles.fontColor}`,
+											}}
+										>
+											{card?.heading}
+										</p>
+
+										<div
+											className={`${styles.cardEditBtn} flex`}
+											style={{
+												backgroundColor: `${card?.styles?.buttonBg}`,
+											}}
 										>
 											{viewedCardId === card.id ? (
-												<AiOutlineFullscreen
+												<FaArrowRightLong
 													fill={`${
 														card?.styles
-															?.iconFill ||
+															?.fontColor ||
 														"#1e1e1e"
 													} `}
 													className="iconSizeVerySmall"
 												/>
 											) : (
-												<AiOutlineFullscreen
+												<FaArrowRightLong
 													fill={`${
 														card?.styles
-															?.iconFill ||
+															?.fontColor ||
 														"#1e1e1e"
 													} `}
 													className="iconSizeSmall"
 												/>
 											)}
-										</Button>
-									</span>
+										</div>
+									</div>
 								</div>
 							</Link>
 							{/* ADD TASKS BTN */}

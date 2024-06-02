@@ -16,11 +16,21 @@ function AllTasks({ cardsData, onCancel, locationId }) {
 	return (
 		<div className={`${styles.allTaskWrapper} primaryFont`}>
 			<div className={`${styles.allTask}`}>
-				<p
-					className={`${styles.allTaskHeading} primaryFontMedium marginBottomMedium`}
-				>
-					All Tasks
-				</p>
+				<div className={`${styles.allTaskHeader} flex`}>
+					<p className={`${styles.allTaskHeading} primaryFontMedium`}>
+						All Tasks
+					</p>
+
+					<div className={`${styles.allTaskCloseBtn}`}>
+						<Button
+							variant="primary"
+							type="squareLarge"
+							onClick={handleAllTaskCloseBtn}
+						>
+							<IoClose className="iconSize" />
+						</Button>
+					</div>
+				</div>
 				{cardsData.map((card) => {
 					return (
 						<Fragment key={card.id}>
@@ -41,15 +51,6 @@ function AllTasks({ cardsData, onCancel, locationId }) {
 						</Fragment>
 					);
 				})}
-				<div className={`${styles.allTaskCloseBtn}`}>
-					<Button
-						variant="primary"
-						type="squareLarge"
-						onClick={handleAllTaskCloseBtn}
-					>
-						<IoClose className="iconSize" />
-					</Button>
-				</div>
 			</div>
 			<AddTaskBtn
 				locationId={locationId}

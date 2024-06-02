@@ -1,4 +1,5 @@
 @import "./../../../global.scss";
+@import "./../../../styles/scss/website.scss";
 
 .whatWrapper {
 	width: 100%;
@@ -47,6 +48,51 @@
 			align-items: flex-start;
 			p {
 				text-align: left;
+			}
+		}
+	}
+}
+
+@include maxHeight {
+	.whatWrapper {
+		height: $min-height;
+		min-height: $min-height;
+	}
+}
+
+@include sm {
+	.whatWrapper {
+		.whatContent {
+			.whatTextWrapper {
+				gap: 4rem;
+
+				p {
+					font-size: 1rem;
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+
+@include xs {
+	.whatWrapper {
+		gap: 2rem;
+		.whatContent {
+			flex-direction: column;
+
+			.whatImgWrapper {
+				height: 70%;
+			}
+		}
+
+		.whatTextWrapper {
+			align-items: center !important;
+			justify-content: center;
+			gap: 1rem !important;
+
+			p {
+				text-align: center !important;
 			}
 		}
 	}

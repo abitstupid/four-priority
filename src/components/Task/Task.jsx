@@ -11,7 +11,8 @@ import { useLocation } from "react-router-dom";
 const checkedAudioPath = "./assets/audio/task-completed-audio.wav";
 const unCheckedAudioPath = "./assets/audio/unCheck-audio.wav";
 
-function Task({ taskArr, cardId, showButtons = false }) {
+// CHECKBOX STYLES ARE IN GLOBAL.SCSS
+export default function Task({ taskArr, cardId, showButtons = false }) {
 	const appContextData = useContext(AppContext);
 	const location = useLocation();
 	const pathName = location.pathname;
@@ -216,5 +217,3 @@ Task.propTypes = {
 	cardId: PropTypes.number.isRequired,
 	showButtons: PropTypes.bool,
 };
-
-export default Task;
