@@ -1,6 +1,6 @@
 {
 	"appTitle": "four-priority",
-	"version": 1.2,
+	"version": 1.3,
 	"PRIORITY_CARDS": [
 		{
 			"id": 0,
@@ -18,11 +18,8 @@
 			"styles": {
 				"height": "17rem",
 				"heightVh": "30vh",
-				"backgroundColor": "#FCBCBD",
-				"btnVariant": "primary",
-				"ribbonBg": "#1e1e1e",
-				"buttonBg": "#ffffff",
-				"fontColor": "#1e1e1e"
+				"backgroundColor": "#FFA2A2",
+				"btnVariant": "primary"
 			}
 		},
 		{
@@ -41,9 +38,8 @@
 			"styles": {
 				"height": "13rem",
 				"heightVh": "20vh",
-				"backgroundColor": "#64C8F1",
+				"backgroundColor": "#94DAF7",
 				"btnVariant": "primary",
-				"ribbonBg": "#ffffff",
 				"buttonBg": "#1e1e1e",
 				"fontColor": "#ffffff"
 			}
@@ -64,9 +60,8 @@
 			"styles": {
 				"height": "13rem",
 				"heightVh": "20vh",
-				"backgroundColor": "#60c79e",
+				"backgroundColor": "#AFFF9C",
 				"btnVariant": "primary",
-				"ribbonBg": "#ffffff",
 				"buttonBg": "#1e1e1e",
 				"fontColor": "#ffffff"
 			}
@@ -89,7 +84,6 @@
 				"heightVh": "20vh",
 				"backgroundColor": "#B0AFAF",
 				"btnVariant": "primary",
-				"ribbonBg": "#ffffff",
 				"buttonBg": "#1e1e1e",
 				"fontColor": "#ffffff"
 			}

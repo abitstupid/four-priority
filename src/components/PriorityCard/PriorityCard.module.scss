@@ -22,8 +22,8 @@ div.priorityCard::-webkit-scrollbar-thumb {
 	}
 
 	.priorityCard {
-		background-color: #fff;
-		// border: 2px solid $primary-color;
+		background-color: #ffffff;
+		border: 2px solid #bababa;
 		border-radius: 2rem;
 		padding: 1rem;
 		padding-bottom: 1.5rem;
@@ -44,28 +44,34 @@ div.priorityCard::-webkit-scrollbar-thumb {
 		width: 95%;
 		justify-content: space-between;
 
-		background-color: $primary-color;
+		background-color: #ffffff60;
+		backdrop-filter: blur(10px);
+		border: 1px solid $website-grey;
 
 		padding: 0.5rem 0.75rem;
 		border-radius: 100px;
 
-		box-shadow: 0 0 5px $primary-transparent-color;
-	}
+		.cardHeading {
+			height: 28px;
 
-	.cardHeading {
-		background-color: $secondary-color;
-		color: $primary-color;
-		padding: 0.25rem 1rem;
-		border-radius: 100px;
+			background-color: $secondary-color;
+			color: $primary-color;
 
-		height: 28px;
-	}
+			// border: 1px solid $website-grey;
+			padding: 0.25rem 1rem;
+			border-radius: 100px;
+			border-radius: 100px;
+		}
 
-	.cardEditBtn {
-		border-radius: 100px;
+		.cardEditBtn {
+			width: 48px;
+			height: 28px;
 
-		height: 28px;
-		width: 48px;
+			border-radius: 100px;
+			// border: 1px solid $website-grey;
+
+			background-color: $secondary-color;
+		}
 	}
 }
 

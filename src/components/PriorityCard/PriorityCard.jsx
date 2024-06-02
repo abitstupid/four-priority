@@ -92,43 +92,25 @@ export default function PriorityCardLink({ cardsData }) {
 									{/* card ribbon */}
 									<div
 										className={`${styles.cardBottomRibbon} flex `}
-										style={{
-											backgroundColor: `${card?.styles?.ribbonBg}`,
-										}}
 									>
 										{/* heading */}
 										<p
-											className={`${styles.cardHeading} primaryFontSemiBold`}
-											style={{
-												backgroundColor: `${card?.styles?.buttonBg}`,
-												color: `${card?.styles.fontColor}`,
-											}}
+											className={`${styles.cardHeading} primaryFontMedium`}
 										>
 											{card?.heading}
 										</p>
 
 										<div
 											className={`${styles.cardEditBtn} flex`}
-											style={{
-												backgroundColor: `${card?.styles?.buttonBg}`,
-											}}
 										>
 											{viewedCardId === card.id ? (
 												<FaArrowRightLong
-													fill={`${
-														card?.styles
-															?.fontColor ||
-														"#1e1e1e"
-													} `}
+													fill={"#1e1e1e"}
 													className="iconSizeVerySmall"
 												/>
 											) : (
 												<FaArrowRightLong
-													fill={`${
-														card?.styles
-															?.fontColor ||
-														"#1e1e1e"
-													} `}
+													fill={"#1e1e1e"}
 													className="iconSizeSmall"
 												/>
 											)}
