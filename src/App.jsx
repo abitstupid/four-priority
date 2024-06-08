@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import data from "./data.json";
 import "./global.scss";
 import "./App.css";
-import Home from "./pages/home/home";
+import Todo from "./pages/todo/todo";
 import Features from "./pages/features/features";
 import AppContext from "./AppContext";
 import PriorityPage from "./pages/priorityPage/priorityPage";
@@ -14,6 +14,7 @@ import WhatWebsite from "./website/pages/whatWebsite/whatWebsite";
 import WhyWebsite from "./website/pages/whyWebsite/whyWebsite";
 import HowWebsite from "./website/pages/howWebsite/howWebsite";
 import WhoWebsite from "./website/pages/whoWebsite/whoWebsite";
+import Home from "./pages/home/home";
 
 const DATA = data;
 const DATA_VERSION = DATA.version;
@@ -138,11 +139,15 @@ function App() {
 						path="/"
 						element={<HomeWebsite />}
 					/>
-
 					<Route
 						path="/app"
+						element={<Home />}
+					/>
+
+					<Route
+						path="/todo"
 						element={
-							<Home
+							<Todo
 								cardsData={cardsData}
 								appTitle={DATA.APP_TITLE}
 							/>

@@ -15,6 +15,7 @@
 		.taskWrapper {
 			background-color: $secondary-transparent-color;
 			color: $primary-color;
+
 			border-radius: 0.5rem;
 			padding: 0.5rem 0.5rem;
 
@@ -50,9 +51,16 @@
 					}
 				}
 			}
-			.changesBtnWrapper {
-				align-self: flex-end;
-				gap: 0.15rem;
+
+			.taskBottomWrapper {
+				width: 100%;
+				justify-content: space-between;
+				padding: 0.25rem 1rem;
+
+				.changesBtnWrapper {
+					align-self: flex-end;
+					gap: 0.15rem;
+				}
 			}
 		}
 	}
@@ -60,4 +68,19 @@
 
 li {
 	list-style-type: none;
+}
+
+.tagClass {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+
+	font-size: 14px;
+
+	border-radius: 100px;
+
+	height: 24px;
+	padding-inline: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }

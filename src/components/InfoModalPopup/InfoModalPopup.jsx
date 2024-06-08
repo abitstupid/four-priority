@@ -24,7 +24,7 @@ export default function InfoModalPopup({ cardId, handleModal }) {
 				</div>
 
 				{/* ID = 99 is for home.jsx */}
-				{cardId === 99 ? (
+				{cardId === data.cardIds.TODO_CARD_ID ? (
 					<>
 						<p className="primaryFontMedium marginBottomMedium">
 							{INFO_DATA.welcome.content}

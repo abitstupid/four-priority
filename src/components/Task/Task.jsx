@@ -21,6 +21,36 @@ export default function Task({ taskArr, cardId, showButtons = false }) {
 	const [checkedAudio, setCheckedAudio] = useState(null);
 	const [unCheckedAudio, setUnCheckedAudio] = useState(null);
 
+	const getBackgroundColor = (cardId) => {
+		switch (cardId) {
+			case 0:
+				return "#FFA2A2";
+			case 1:
+				return "#94DAF7";
+			case 2:
+				return "#AFFF9C";
+			case 3:
+				return "#B0AFAF";
+			default:
+				return "transparent";
+		}
+	};
+
+	const getPriorityCardTag = (cardId) => {
+		switch (cardId) {
+			case 0:
+				return "Priority 1";
+			case 1:
+				return "Priority 2";
+			case 2:
+				return "Priority 3";
+			case 3:
+				return "Others";
+			default:
+				return "transparent";
+		}
+	};
+
 	useEffect(() => {
 		// Preload the audio files
 		const checkedAudio = new Audio(checkedAudioPath);
@@ -175,25 +205,42 @@ export default function Task({ taskArr, cardId, showButtons = false }) {
 									</div>
 
 									{editingTaskId === null &&
-										((pathName !== "/app" &&
+										((pathName !== "/todo" &&
 											pathName !== "/how") ||
 											showButtons) && (
 											<div
-												className={`${styles.changesBtnWrapper} flex`}
+												className={`${styles.taskBottomWrapper}  flex`}
 											>
-												<DeleteBtn
-													onClick={() =>
-														appContextData.handleTaskDeleteBtn(
-															cardId,
-															task.id
-														)
-													}
-												/>
-												<EditBtn
-													onClick={() =>
-														handleEditTaskBtn(task)
-													}
-												/>
+												<p
+													className={`${styles.priorityTag} ${styles.tagClass} primaryFontMedium`}
+													style={{
+														backgroundColor:
+															getBackgroundColor(
+																cardId
+															),
+													}}
+												>
+													{getPriorityCardTag(cardId)}
+												</p>
+												<div
+													className={`${styles.changesBtnWrapper}  flex`}
+												>
+													<DeleteBtn
+														onClick={() =>
+															appContextData.handleTaskDeleteBtn(
+																cardId,
+																task.id
+															)
+														}
+													/>
+													<EditBtn
+														onClick={() =>
+															handleEditTaskBtn(
+																task
+															)
+														}
+													/>
+												</div>
 											</div>
 										)}
 								</div>
