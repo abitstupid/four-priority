@@ -44,6 +44,7 @@ export default function TopNav({ cardId }) {
 						{APP_TITLE}
 					</h1>
 					<div className={`${styles.appLogoWrapper} center`}>
+						{/* <Link to={"/app"}> */}
 						<span
 							style={{
 								position: "relative",
@@ -85,6 +86,7 @@ export default function TopNav({ cardId }) {
 								beta
 							</span>
 						</span>
+						{/* </Link> */}
 					</div>
 				</>
 			) : (

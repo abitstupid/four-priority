@@ -16,7 +16,7 @@ export default function BottomNav() {
 	}
 	return (
 		<div className={`${styles.bottomNavWrpper}`}>
-			{/* home */}
+			{/* HOME */}
 			{/* <Link
 				to={"/app"}
 				onClick={() => handleNavBtnClick("/app")}

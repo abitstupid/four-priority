@@ -65,7 +65,7 @@ export default function WhatWebsite() {
 						</p>
 					</div>
 				</section>
-				<Link to={"/app"}>
+				<Link to={"/todo"}>
 					<Button
 						padding="36"
 						type="rect"

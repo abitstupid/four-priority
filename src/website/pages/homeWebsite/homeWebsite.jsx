@@ -53,7 +53,7 @@ export default function HomeWebsite() {
 						This is not a normal To-Do app
 					</h1>
 				</div>
-				<Link to={"/app"}>
+				<Link to={"/todo"}>
 					<Button
 						padding="36"
 						type="rect"

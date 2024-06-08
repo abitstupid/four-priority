@@ -58,7 +58,7 @@ export default function HowWebsite() {
 							src={howImage}
 							alt="Phone displaying the home screen of the Four Priority app with a list of tasks."
 						/>
-						<Link to={"/app"}>
+						<Link to={"/todo"}>
 							<Button
 								padding="36"
 								type="rect"

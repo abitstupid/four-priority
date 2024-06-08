@@ -31,7 +31,7 @@ export default function NavbarWebsite() {
 								src={appImageStraight}
 								alt="Phone displaying the home screen of the Four Priority app with a list of tasks"
 							/>
-							<Link to={"/app"}>
+							<Link to={"/todo"}>
 								<Button
 									padding="36"
 									type="rect"
